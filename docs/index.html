@@ -1,0 +1,3722 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>🇵🇱 2023 Polish Election Dashboard</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">🇵🇱 2023 Polish Election Dashboard</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Spending</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./targeting.html" rel="" target="">
+ <span class="menu-text">Targeting</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/favstats" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/favstats" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<style>
+    body .main-container {
+        max-width: 1920px !important;
+    }
+</style>
+<div class="cell-output-display">
+<style>
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 10%;
+}
+
+#text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  font-size: 20px;
+  color: black;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+}
+</style>
+
+<div id="overlay" onclick="off()">
+  <div id="text">
+    <img src="wtm_logo_2020.png" alt="Logo" style="width:150px;height:150px;">
+    <h2 class="anchored">Welcome to the 2023 Polish Election Dashboard</h2>
+    <p>This dashboard aggregates data from the <a href="https://www.facebook.com/ads/library/" target="_blank">Meta Ad Library</a> to show how citizens are targeted during the 2023 Polish parliamentary election.</p>
+    <p>If you want to know more about Who Targets Me and our work on ad transparency, visit us on <a href="https://www.whotargets.me/" target="_blank">whotargets.me</a>!</p>
+  </div>
+</div>
+
+<script>
+window.onload = function() {
+  var popupLastShown = localStorage.getItem("popupLastShown");
+  var now = new Date().getTime();
+
+  if (!popupLastShown || now - popupLastShown > 60*60*1000) {  // 60*60*1000 milliseconds = 1 hour
+    document.getElementById("overlay").style.display = "block";
+    localStorage.setItem("popupLastShown", now);
+  }
+}
+
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
+</div>
+<section id="polish-parliamentary-election" class="level1">
+<h1>2023 Polish parliamentary election</h1>
+<p>This section shows <em>total</em> and <em>daily spending</em> of political parties in the run-up to the 2023 Polish parliamentary election for the latest available data.</p>
+</section>
+<section id="topline-statistics" class="level1">
+<h1>Topline Statistics</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><img src="img/meta.svg" height="24px"> Meta</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><img src="img/g.svg" class="img-fluid"> Google</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false"><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:lightblue;overflow:visible;position:relative;"><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"></path></svg> Combined</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Aug 25th - Sep 23rd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Sep 17th - Sep 23rd 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>In total, political parties spend zł1,920,237 and ran 8811 ads on Meta in this period.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="ixywosatvn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#ixywosatvn table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ixywosatvn thead, #ixywosatvn tbody, #ixywosatvn tfoot, #ixywosatvn tr, #ixywosatvn td, #ixywosatvn th {
+  border-style: none;
+}
+
+#ixywosatvn p {
+  margin: 0;
+  padding: 0;
+}
+
+#ixywosatvn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ixywosatvn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ixywosatvn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ixywosatvn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ixywosatvn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ixywosatvn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ixywosatvn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ixywosatvn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ixywosatvn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ixywosatvn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ixywosatvn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#ixywosatvn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ixywosatvn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ixywosatvn .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ixywosatvn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ixywosatvn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ixywosatvn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ixywosatvn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ixywosatvn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ixywosatvn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ixywosatvn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ixywosatvn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ixywosatvn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ixywosatvn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ixywosatvn .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ixywosatvn .gt_left {
+  text-align: left;
+}
+
+#ixywosatvn .gt_center {
+  text-align: center;
+}
+
+#ixywosatvn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ixywosatvn .gt_font_normal {
+  font-weight: normal;
+}
+
+#ixywosatvn .gt_font_bold {
+  font-weight: bold;
+}
+
+#ixywosatvn .gt_font_italic {
+  font-style: italic;
+}
+
+#ixywosatvn .gt_super {
+  font-size: 65%;
+}
+
+#ixywosatvn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ixywosatvn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ixywosatvn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ixywosatvn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ixywosatvn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ixywosatvn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ixywosatvn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ZP</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #263778;"><div class="gt_from_md"><p>192</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Prawo i Sprawiedliwość (zł502,797)<br>2. Mateusz Morawiecki (zł44,855)<br>3. Solidarna Polska (zł13,192)</p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>2,757</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł734,495</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KO</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f68f2d;"><div class="gt_from_md"><p>236</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Platforma Obywatelska (zł480,846)<br>2. Paweł Olszewski (zł22,916)<br>3. Tomasz Siemoniak (zł13,282)</p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>2,497</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł702,398</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LEW</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #851a64;"><div class="gt_from_md"><p>87</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Lewica (zł121,115)<br>2. Bart Staszewski (zł10,874)<br>3. Tomasz Trela (zł6,591)</p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1,572</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł204,365</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>TD</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #3db53a;"><div class="gt_from_md"><p>146</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Władysław Kosiniak-Kamysz (zł14,460)<br>2. Piotr Strach (zł11,890)<br>3. Rafał Komarewicz - Przewodniczący Rady Miasta Krakowa (zł9,673)</p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1,424</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł199,484</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KWIN</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #122746;"><div class="gt_from_md"><p>39</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Konfederacja (zł23,673)<br>2. Patryk Marjan (zł3,516)<br>3. Stanisław Tyszka (zł1,426)</p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>237</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł40,369</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>BS</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #e6001a;"><div class="gt_from_md"><p>19</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Piotr Koszarek - do Sejmu (zł7,628)<br>2. Mazowiecka Wspólnota Samorządowa (zł5,260)<br>3. Dariusz Kacprzak - Bezpartyjni Samorządowcy (zł3,624)</p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>108</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł26,996</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LIB</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ffd900;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Paweł Tanajno Polska Liberalna Strajk Przedsiębiorców (zł10,157)<br>2. Marcin Koza Shogun (zł1,973)</p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>216</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł12,130</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>In total, political parties spend zł760,153 and ran 5381 ads on Meta in this period.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="zxivlgrmxk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#zxivlgrmxk table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#zxivlgrmxk thead, #zxivlgrmxk tbody, #zxivlgrmxk tfoot, #zxivlgrmxk tr, #zxivlgrmxk td, #zxivlgrmxk th {
+  border-style: none;
+}
+
+#zxivlgrmxk p {
+  margin: 0;
+  padding: 0;
+}
+
+#zxivlgrmxk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#zxivlgrmxk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#zxivlgrmxk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#zxivlgrmxk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#zxivlgrmxk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#zxivlgrmxk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#zxivlgrmxk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#zxivlgrmxk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#zxivlgrmxk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#zxivlgrmxk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#zxivlgrmxk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#zxivlgrmxk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#zxivlgrmxk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#zxivlgrmxk .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#zxivlgrmxk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zxivlgrmxk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#zxivlgrmxk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#zxivlgrmxk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#zxivlgrmxk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zxivlgrmxk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#zxivlgrmxk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zxivlgrmxk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#zxivlgrmxk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zxivlgrmxk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zxivlgrmxk .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zxivlgrmxk .gt_left {
+  text-align: left;
+}
+
+#zxivlgrmxk .gt_center {
+  text-align: center;
+}
+
+#zxivlgrmxk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#zxivlgrmxk .gt_font_normal {
+  font-weight: normal;
+}
+
+#zxivlgrmxk .gt_font_bold {
+  font-weight: bold;
+}
+
+#zxivlgrmxk .gt_font_italic {
+  font-style: italic;
+}
+
+#zxivlgrmxk .gt_super {
+  font-size: 65%;
+}
+
+#zxivlgrmxk .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#zxivlgrmxk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#zxivlgrmxk .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#zxivlgrmxk .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#zxivlgrmxk .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#zxivlgrmxk .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#zxivlgrmxk .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ZP</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #263778;"><div class="gt_from_md"><p>147</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Prawo i Sprawiedliwość (zł161,477)<br>2. Mateusz Morawiecki (zł43,845)<br>3. Janusz Cieszyński (zł7,320)</p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1,612</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł270,298</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KO</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f68f2d;"><div class="gt_from_md"><p>188</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Platforma Obywatelska (zł141,318)<br>2. Cezary Tomczyk (zł5,791)<br>3. Paweł Olszewski (zł5,317)</p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1,374</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł237,135</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LEW</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #851a64;"><div class="gt_from_md"><p>81</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Lewica (zł69,733)<br>2. Maciej Gdula (zł3,080)<br>3. Paweł Krutul - Podlaski Poseł (zł2,135)</p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1,164</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł108,806</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>TD</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #3db53a;"><div class="gt_from_md"><p>136</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Michał Kobosko (zł5,582)<br>2. Władysław Kosiniak-Kamysz (zł5,215)<br>3. Rafał Komarewicz - Przewodniczący Rady Miasta Krakowa (zł5,065)</p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>962</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł99,235</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KWIN</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #122746;"><div class="gt_from_md"><p>33</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Konfederacja (zł13,222)<br>2. Patryk Marjan (zł1,608)<br>3. Stanisław Tyszka (zł1,426)</p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>160</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł24,954</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>BS</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #e6001a;"><div class="gt_from_md"><p>19</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Piotr Koszarek - do Sejmu (zł5,989)<br>2. Dariusz Kacprzak - Bezpartyjni Samorządowcy (zł3,136)<br>3. Damian Stawikowski - do Sejmu (zł2,081)</p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>93</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł19,146</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LIB</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ffd900;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Marcin Koza Shogun (zł462)<br>2. Paweł Tanajno Polska Liberalna Strajk Przedsiębiorców (zł117)</p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>16</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł579</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Aug 25th - Sep 23rd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Sep 17th - Sep 23rd 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>In total, political parties spent zł4,009,250 and ran 2919 ad copies on Google in this timeframe.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="xgwmqexjvo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#xgwmqexjvo table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xgwmqexjvo thead, #xgwmqexjvo tbody, #xgwmqexjvo tfoot, #xgwmqexjvo tr, #xgwmqexjvo td, #xgwmqexjvo th {
+  border-style: none;
+}
+
+#xgwmqexjvo p {
+  margin: 0;
+  padding: 0;
+}
+
+#xgwmqexjvo .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xgwmqexjvo .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xgwmqexjvo .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xgwmqexjvo .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xgwmqexjvo .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xgwmqexjvo .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xgwmqexjvo .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xgwmqexjvo .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xgwmqexjvo .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xgwmqexjvo .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xgwmqexjvo .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#xgwmqexjvo .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xgwmqexjvo .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xgwmqexjvo .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xgwmqexjvo .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgwmqexjvo .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xgwmqexjvo .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xgwmqexjvo .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xgwmqexjvo .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgwmqexjvo .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xgwmqexjvo .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgwmqexjvo .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xgwmqexjvo .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgwmqexjvo .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xgwmqexjvo .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgwmqexjvo .gt_left {
+  text-align: left;
+}
+
+#xgwmqexjvo .gt_center {
+  text-align: center;
+}
+
+#xgwmqexjvo .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xgwmqexjvo .gt_font_normal {
+  font-weight: normal;
+}
+
+#xgwmqexjvo .gt_font_bold {
+  font-weight: bold;
+}
+
+#xgwmqexjvo .gt_font_italic {
+  font-style: italic;
+}
+
+#xgwmqexjvo .gt_super {
+  font-size: 65%;
+}
+
+#xgwmqexjvo .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xgwmqexjvo .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xgwmqexjvo .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xgwmqexjvo .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xgwmqexjvo .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xgwmqexjvo .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xgwmqexjvo .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ZP</p>
+</div></th>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #263778;"><div class="gt_from_md"><p>661</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Komitet Wyborczy Prawo i Sprawiedliwość (zł2,927,250)<br>2. KW PRAWO I SPRAWIEDLIWOŚĆ (zł750)<br>3. Lendo Andrzej Skrętowski (zł0)</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł2,928,000</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KO</p>
+</div></th>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f68f2d;"><div class="gt_from_md"><p>545</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. KOALICYJNY KOMITET WYBORCZY KOALICJA OBYWATELSKA PO .N IPL ZIELONI (zł722,250)<br>2. Platforma Obywatelska RP (zł267,250)<br>3. BUSINESS TAILORS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ (zł500)</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł990,000</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LEW</p>
+</div></th>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #851a64;"><div class="gt_from_md"><p>1,497</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Komitet Wyborczy Nowa Lewica (zł58,250)<br>2. KW Nowa Lewica (zł1,000)<br>3. NOWA LEWICA (zł500)</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł59,750</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KWIN</p>
+</div></th>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #122746;"><div class="gt_from_md"><p>52</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Komitet Wyborczy Konfederacja Wolność i Niepodległość (zł18,500)</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł18,500</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>BS</p>
+</div></th>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #e6001a;"><div class="gt_from_md"><p>50</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. KW Bezpartyjni Samorządowcy (zł7,250)</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł7,250</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>TD</p>
+</div></th>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #3db53a;"><div class="gt_from_md"><p>114</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. KKW TRZECIA DROGA PSL-PL2050 SZYMONA HOŁOWNI (zł5,250)<br>2. POLSKA 2050 (zł500)</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł5,750</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>In total, political parties spent zł1,103,250 and ran 2519 ad copies on Google in this timeframe.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="ocvlsuxind" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#ocvlsuxind table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ocvlsuxind thead, #ocvlsuxind tbody, #ocvlsuxind tfoot, #ocvlsuxind tr, #ocvlsuxind td, #ocvlsuxind th {
+  border-style: none;
+}
+
+#ocvlsuxind p {
+  margin: 0;
+  padding: 0;
+}
+
+#ocvlsuxind .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ocvlsuxind .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ocvlsuxind .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ocvlsuxind .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ocvlsuxind .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ocvlsuxind .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ocvlsuxind .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ocvlsuxind .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ocvlsuxind .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ocvlsuxind .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ocvlsuxind .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#ocvlsuxind .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ocvlsuxind .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ocvlsuxind .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ocvlsuxind .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocvlsuxind .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ocvlsuxind .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ocvlsuxind .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ocvlsuxind .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocvlsuxind .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ocvlsuxind .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocvlsuxind .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ocvlsuxind .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocvlsuxind .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ocvlsuxind .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocvlsuxind .gt_left {
+  text-align: left;
+}
+
+#ocvlsuxind .gt_center {
+  text-align: center;
+}
+
+#ocvlsuxind .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ocvlsuxind .gt_font_normal {
+  font-weight: normal;
+}
+
+#ocvlsuxind .gt_font_bold {
+  font-weight: bold;
+}
+
+#ocvlsuxind .gt_font_italic {
+  font-style: italic;
+}
+
+#ocvlsuxind .gt_super {
+  font-size: 65%;
+}
+
+#ocvlsuxind .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ocvlsuxind .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ocvlsuxind .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ocvlsuxind .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ocvlsuxind .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ocvlsuxind .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ocvlsuxind .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ZP</p>
+</div></th>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #263778;"><div class="gt_from_md"><p>491</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Komitet Wyborczy Prawo i Sprawiedliwość (zł653,750)<br>2. KW PRAWO I SPRAWIEDLIWOŚĆ (zł750)</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł654,500</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KO</p>
+</div></th>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f68f2d;"><div class="gt_from_md"><p>433</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. KOALICYJNY KOMITET WYBORCZY KOALICJA OBYWATELSKA PO .N IPL ZIELONI (zł222,750)<br>2. Platforma Obywatelska RP (zł159,000)<br>3. BUSINESS TAILORS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ (zł500)</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł382,250</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LEW</p>
+</div></th>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #851a64;"><div class="gt_from_md"><p>1,421</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Komitet Wyborczy Nowa Lewica (zł43,750)<br>2. KW Nowa Lewica (zł750)<br>3. NOWA LEWICA (zł500)</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł45,000</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KWIN</p>
+</div></th>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #122746;"><div class="gt_from_md"><p>40</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Komitet Wyborczy Konfederacja Wolność i Niepodległość (zł8,000)</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł8,000</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>TD</p>
+</div></th>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #3db53a;"><div class="gt_from_md"><p>91</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. KKW TRZECIA DROGA PSL-PL2050 SZYMONA HOŁOWNI (zł5,250)<br>2. KKW TRZECIA DROGA PKOALICYJNY KOMITET WYBORCZY TRZECIA DROGA POLSKA 2050 SZYMONA HOŁOWNI - POLSKIE STRONNICTWO LUDOWESL-PL2050 SZYMONA HOŁOWNI. (zł1,750)<br>3. POLSKA 2050 (zł500)</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł7,500</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>BS</p>
+</div></th>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #e6001a;"><div class="gt_from_md"><p>43</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. KW Bezpartyjni Samorządowcy (zł6,000)</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>zł6,000</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Aug 25th - Sep 23rd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Sep 17th - Sep 23rd 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>In total, political parties spent €5,929,487 and ran 11730 ad copies on digital platforms in this timeframe.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="dxcxipjalh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#dxcxipjalh table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dxcxipjalh thead, #dxcxipjalh tbody, #dxcxipjalh tfoot, #dxcxipjalh tr, #dxcxipjalh td, #dxcxipjalh th {
+  border-style: none;
+}
+
+#dxcxipjalh p {
+  margin: 0;
+  padding: 0;
+}
+
+#dxcxipjalh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dxcxipjalh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dxcxipjalh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dxcxipjalh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dxcxipjalh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dxcxipjalh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dxcxipjalh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dxcxipjalh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dxcxipjalh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dxcxipjalh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dxcxipjalh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#dxcxipjalh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dxcxipjalh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dxcxipjalh .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dxcxipjalh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dxcxipjalh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dxcxipjalh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dxcxipjalh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dxcxipjalh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dxcxipjalh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dxcxipjalh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dxcxipjalh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dxcxipjalh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dxcxipjalh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dxcxipjalh .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dxcxipjalh .gt_left {
+  text-align: left;
+}
+
+#dxcxipjalh .gt_center {
+  text-align: center;
+}
+
+#dxcxipjalh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dxcxipjalh .gt_font_normal {
+  font-weight: normal;
+}
+
+#dxcxipjalh .gt_font_bold {
+  font-weight: bold;
+}
+
+#dxcxipjalh .gt_font_italic {
+  font-style: italic;
+}
+
+#dxcxipjalh .gt_super {
+  font-size: 65%;
+}
+
+#dxcxipjalh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dxcxipjalh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dxcxipjalh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dxcxipjalh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dxcxipjalh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dxcxipjalh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dxcxipjalh .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ZP</p>
+</div></th>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #263778;"><div class="gt_from_md"><p>zł3,662,495</p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>3418</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KO</p>
+</div></th>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f68f2d;"><div class="gt_from_md"><p>zł1,692,398</p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>3042</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LEW</p>
+</div></th>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #851a64;"><div class="gt_from_md"><p>zł264,115</p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>3069</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>TD</p>
+</div></th>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #3db53a;"><div class="gt_from_md"><p>zł205,234</p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1538</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KWIN</p>
+</div></th>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #122746;"><div class="gt_from_md"><p>zł58,869</p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>289</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>BS</p>
+</div></th>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #e6001a;"><div class="gt_from_md"><p>zł34,246</p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>158</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LIB</p>
+</div></th>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ffd900;"><div class="gt_from_md"><p>zł12,130</p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>216</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>In total, political parties spent €1,863,403 and ran 7900 ads on digital platforms in this timeframe.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="vylfmmsimz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#vylfmmsimz table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vylfmmsimz thead, #vylfmmsimz tbody, #vylfmmsimz tfoot, #vylfmmsimz tr, #vylfmmsimz td, #vylfmmsimz th {
+  border-style: none;
+}
+
+#vylfmmsimz p {
+  margin: 0;
+  padding: 0;
+}
+
+#vylfmmsimz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vylfmmsimz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vylfmmsimz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vylfmmsimz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vylfmmsimz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vylfmmsimz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vylfmmsimz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vylfmmsimz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vylfmmsimz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vylfmmsimz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vylfmmsimz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#vylfmmsimz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vylfmmsimz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vylfmmsimz .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vylfmmsimz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vylfmmsimz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vylfmmsimz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vylfmmsimz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vylfmmsimz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vylfmmsimz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vylfmmsimz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vylfmmsimz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vylfmmsimz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vylfmmsimz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vylfmmsimz .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vylfmmsimz .gt_left {
+  text-align: left;
+}
+
+#vylfmmsimz .gt_center {
+  text-align: center;
+}
+
+#vylfmmsimz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vylfmmsimz .gt_font_normal {
+  font-weight: normal;
+}
+
+#vylfmmsimz .gt_font_bold {
+  font-weight: bold;
+}
+
+#vylfmmsimz .gt_font_italic {
+  font-style: italic;
+}
+
+#vylfmmsimz .gt_super {
+  font-size: 65%;
+}
+
+#vylfmmsimz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vylfmmsimz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vylfmmsimz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vylfmmsimz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vylfmmsimz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vylfmmsimz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vylfmmsimz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ZP</p>
+</div></th>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #263778;"><div class="gt_from_md"><p>zł924,798</p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>2103</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KO</p>
+</div></th>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f68f2d;"><div class="gt_from_md"><p>zł619,385</p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1807</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LEW</p>
+</div></th>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #851a64;"><div class="gt_from_md"><p>zł153,806</p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>2585</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>TD</p>
+</div></th>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #3db53a;"><div class="gt_from_md"><p>zł106,735</p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1053</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>KWIN</p>
+</div></th>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #122746;"><div class="gt_from_md"><p>zł32,954</p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>200</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>BS</p>
+</div></th>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #e6001a;"><div class="gt_from_md"><p>zł25,146</p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>136</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LIB</p>
+</div></th>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ffd900;"><div class="gt_from_md"><p>zł579</p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>16</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="spending-over-time" class="level1">
+<h1>Spending over Time</h1>
+<p>Daily spending estimates might not be entirely accurate as reporting granularity differs (e.g.&nbsp;on Google minimum amounts of 50 Euro are displayed). For total estimates refer to the spending in the section above.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true"><img src="img/meta.svg" height="24px"> Meta</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false"><img src="img/g.svg" class="img-fluid"> Google</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-3" role="tab" aria-controls="tabset-8-3" aria-selected="false"><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:lightblue;overflow:visible;position:relative;"><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"></path></svg> Combined</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Cumulative</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Daily</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-cecf2f8b2412d9250d2f" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-cecf2f8b2412d9250d2f">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"BS","data":[{"date_produced":"2023-09-19","party":"BS","spend":76685,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#e6001a"},{"date_produced":"2023-09-20","party":"BS","spend":79127,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-20","Daily Spend":2442,"x":1695168000000,"y":2442,"fill":"#e6001a"},{"date_produced":"2023-09-21","party":"BS","spend":81971,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-21","Daily Spend":5286,"x":1695254400000,"y":5286,"fill":"#e6001a"},{"date_produced":"2023-09-22","party":"BS","spend":85317,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-22","Daily Spend":8632,"x":1695340800000,"y":8632,"fill":"#e6001a"},{"date_produced":"2023-09-23","party":"BS","spend":89655,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-23","Daily Spend":12970,"x":1695427200000,"y":12970,"fill":"#e6001a"},{"date_produced":"2023-09-24","party":"BS","spend":94257,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-24","Daily Spend":17572,"x":1695513600000,"y":17572,"fill":"#e6001a"}],"type":"area"},{"name":"LIB","data":[{"date_produced":"2023-09-19","party":"LIB","spend":430498,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#ffd900"},{"date_produced":"2023-09-20","party":"LIB","spend":430582,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-20","Daily Spend":84,"x":1695168000000,"y":84,"fill":"#ffd900"},{"date_produced":"2023-09-21","party":"LIB","spend":430666,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-21","Daily Spend":168,"x":1695254400000,"y":168,"fill":"#ffd900"},{"date_produced":"2023-09-22","party":"LIB","spend":430735,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-22","Daily Spend":237,"x":1695340800000,"y":237,"fill":"#ffd900"},{"date_produced":"2023-09-23","party":"LIB","spend":430799,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-23","Daily Spend":301,"x":1695427200000,"y":301,"fill":"#ffd900"},{"date_produced":"2023-09-24","party":"LIB","spend":430870,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-24","Daily Spend":372,"x":1695513600000,"y":372,"fill":"#ffd900"}],"type":"area"},{"name":"KWIN","data":[{"date_produced":"2023-09-19","party":"KWIN","spend":453111,"total_spend":473487,"colors":"#122746","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#122746"},{"date_produced":"2023-09-20","party":"KWIN","spend":456421,"total_spend":473487,"colors":"#122746","Date":"2023-09-20","Daily Spend":3310,"x":1695168000000,"y":3310,"fill":"#122746"},{"date_produced":"2023-09-21","party":"KWIN","spend":459695,"total_spend":473487,"colors":"#122746","Date":"2023-09-21","Daily Spend":6584,"x":1695254400000,"y":6584,"fill":"#122746"},{"date_produced":"2023-09-22","party":"KWIN","spend":463402,"total_spend":473487,"colors":"#122746","Date":"2023-09-22","Daily Spend":10291,"x":1695340800000,"y":10291,"fill":"#122746"},{"date_produced":"2023-09-23","party":"KWIN","spend":468497,"total_spend":473487,"colors":"#122746","Date":"2023-09-23","Daily Spend":15386,"x":1695427200000,"y":15386,"fill":"#122746"},{"date_produced":"2023-09-24","party":"KWIN","spend":473487,"total_spend":473487,"colors":"#122746","Date":"2023-09-24","Daily Spend":20376,"x":1695513600000,"y":20376,"fill":"#122746"}],"type":"area"},{"name":"LEW","data":[{"date_produced":"2023-09-19","party":"LEW","spend":754418,"total_spend":841597,"colors":"#851a64","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#851a64"},{"date_produced":"2023-09-20","party":"LEW","spend":770890,"total_spend":841597,"colors":"#851a64","Date":"2023-09-20","Daily Spend":16472,"x":1695168000000,"y":16472,"fill":"#851a64"},{"date_produced":"2023-09-21","party":"LEW","spend":788436,"total_spend":841597,"colors":"#851a64","Date":"2023-09-21","Daily Spend":34018,"x":1695254400000,"y":34018,"fill":"#851a64"},{"date_produced":"2023-09-22","party":"LEW","spend":806000,"total_spend":841597,"colors":"#851a64","Date":"2023-09-22","Daily Spend":51582,"x":1695340800000,"y":51582,"fill":"#851a64"},{"date_produced":"2023-09-23","party":"LEW","spend":823691,"total_spend":841597,"colors":"#851a64","Date":"2023-09-23","Daily Spend":69273,"x":1695427200000,"y":69273,"fill":"#851a64"},{"date_produced":"2023-09-24","party":"LEW","spend":841597,"total_spend":841597,"colors":"#851a64","Date":"2023-09-24","Daily Spend":87179,"x":1695513600000,"y":87179,"fill":"#851a64"}],"type":"area"},{"name":"TD","data":[{"date_produced":"2023-09-19","party":"TD","spend":1124444,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#3db53a"},{"date_produced":"2023-09-20","party":"TD","spend":1137307,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-20","Daily Spend":12863,"x":1695168000000,"y":12863,"fill":"#3db53a"},{"date_produced":"2023-09-21","party":"TD","spend":1151828,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-21","Daily Spend":27384,"x":1695254400000,"y":27384,"fill":"#3db53a"},{"date_produced":"2023-09-22","party":"TD","spend":1166694,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-22","Daily Spend":42250,"x":1695340800000,"y":42250,"fill":"#3db53a"},{"date_produced":"2023-09-23","party":"TD","spend":1183480,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-23","Daily Spend":59036,"x":1695427200000,"y":59036,"fill":"#3db53a"},{"date_produced":"2023-09-24","party":"TD","spend":1200019,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-24","Daily Spend":75575,"x":1695513600000,"y":75575,"fill":"#3db53a"}],"type":"area"},{"name":"ZP","data":[{"date_produced":"2023-09-19","party":"ZP","spend":3061659,"total_spend":3261538,"colors":"#263778","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#263778"},{"date_produced":"2023-09-20","party":"ZP","spend":3101192,"total_spend":3261538,"colors":"#263778","Date":"2023-09-20","Daily Spend":39533,"x":1695168000000,"y":39533,"fill":"#263778"},{"date_produced":"2023-09-21","party":"ZP","spend":3141615,"total_spend":3261538,"colors":"#263778","Date":"2023-09-21","Daily Spend":79956,"x":1695254400000,"y":79956,"fill":"#263778"},{"date_produced":"2023-09-22","party":"ZP","spend":3184417,"total_spend":3261538,"colors":"#263778","Date":"2023-09-22","Daily Spend":122758,"x":1695340800000,"y":122758,"fill":"#263778"},{"date_produced":"2023-09-23","party":"ZP","spend":3221759,"total_spend":3261538,"colors":"#263778","Date":"2023-09-23","Daily Spend":160100,"x":1695427200000,"y":160100,"fill":"#263778"},{"date_produced":"2023-09-24","party":"ZP","spend":3261538,"total_spend":3261538,"colors":"#263778","Date":"2023-09-24","Daily Spend":199879,"x":1695513600000,"y":199879,"fill":"#263778"}],"type":"area"},{"name":"KO","data":[{"date_produced":"2023-09-19","party":"KO","spend":4344232,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#f68f2d"},{"date_produced":"2023-09-20","party":"KO","spend":4378122,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-20","Daily Spend":33890,"x":1695168000000,"y":33890,"fill":"#f68f2d"},{"date_produced":"2023-09-21","party":"KO","spend":4409454,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-21","Daily Spend":65222,"x":1695254400000,"y":65222,"fill":"#f68f2d"},{"date_produced":"2023-09-22","party":"KO","spend":4441528,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-22","Daily Spend":97296,"x":1695340800000,"y":97296,"fill":"#f68f2d"},{"date_produced":"2023-09-23","party":"KO","spend":4472155,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-23","Daily Spend":127923,"x":1695427200000,"y":127923,"fill":"#f68f2d"},{"date_produced":"2023-09-24","party":"KO","spend":4505331,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-24","Daily Spend":161099,"x":1695513600000,"y":161099,"fill":"#f68f2d"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#e6001a","#ffd900","#122746","#851a64","#3db53a","#263778","#f68f2d"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-25999dc0266621d970d4" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-25999dc0266621d970d4">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"BS","data":[{"date_produced":"2023-09-19","party":"BS","spend":76685,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#e6001a"},{"date_produced":"2023-09-20","party":"BS","spend":79127,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-20","Daily Spend":2442,"x":1695168000000,"y":2442,"fill":"#e6001a"},{"date_produced":"2023-09-21","party":"BS","spend":81971,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-21","Daily Spend":2844,"x":1695254400000,"y":2844,"fill":"#e6001a"},{"date_produced":"2023-09-22","party":"BS","spend":85317,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-22","Daily Spend":3346,"x":1695340800000,"y":3346,"fill":"#e6001a"},{"date_produced":"2023-09-23","party":"BS","spend":89655,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-23","Daily Spend":4338,"x":1695427200000,"y":4338,"fill":"#e6001a"},{"date_produced":"2023-09-24","party":"BS","spend":94257,"total_spend":94257,"colors":"#e6001a","Date":"2023-09-24","Daily Spend":4602,"x":1695513600000,"y":4602,"fill":"#e6001a"}],"type":"area"},{"name":"LIB","data":[{"date_produced":"2023-09-19","party":"LIB","spend":430498,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#ffd900"},{"date_produced":"2023-09-20","party":"LIB","spend":430582,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-20","Daily Spend":84,"x":1695168000000,"y":84,"fill":"#ffd900"},{"date_produced":"2023-09-21","party":"LIB","spend":430666,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-21","Daily Spend":84,"x":1695254400000,"y":84,"fill":"#ffd900"},{"date_produced":"2023-09-22","party":"LIB","spend":430735,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-22","Daily Spend":69,"x":1695340800000,"y":69,"fill":"#ffd900"},{"date_produced":"2023-09-23","party":"LIB","spend":430799,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-23","Daily Spend":64,"x":1695427200000,"y":64,"fill":"#ffd900"},{"date_produced":"2023-09-24","party":"LIB","spend":430870,"total_spend":430870,"colors":"#ffd900","Date":"2023-09-24","Daily Spend":71,"x":1695513600000,"y":71,"fill":"#ffd900"}],"type":"area"},{"name":"KWIN","data":[{"date_produced":"2023-09-19","party":"KWIN","spend":453111,"total_spend":473487,"colors":"#122746","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#122746"},{"date_produced":"2023-09-20","party":"KWIN","spend":456421,"total_spend":473487,"colors":"#122746","Date":"2023-09-20","Daily Spend":3310,"x":1695168000000,"y":3310,"fill":"#122746"},{"date_produced":"2023-09-21","party":"KWIN","spend":459695,"total_spend":473487,"colors":"#122746","Date":"2023-09-21","Daily Spend":3274,"x":1695254400000,"y":3274,"fill":"#122746"},{"date_produced":"2023-09-22","party":"KWIN","spend":463402,"total_spend":473487,"colors":"#122746","Date":"2023-09-22","Daily Spend":3707,"x":1695340800000,"y":3707,"fill":"#122746"},{"date_produced":"2023-09-23","party":"KWIN","spend":468497,"total_spend":473487,"colors":"#122746","Date":"2023-09-23","Daily Spend":5095,"x":1695427200000,"y":5095,"fill":"#122746"},{"date_produced":"2023-09-24","party":"KWIN","spend":473487,"total_spend":473487,"colors":"#122746","Date":"2023-09-24","Daily Spend":4990,"x":1695513600000,"y":4990,"fill":"#122746"}],"type":"area"},{"name":"LEW","data":[{"date_produced":"2023-09-19","party":"LEW","spend":754418,"total_spend":841597,"colors":"#851a64","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#851a64"},{"date_produced":"2023-09-20","party":"LEW","spend":770890,"total_spend":841597,"colors":"#851a64","Date":"2023-09-20","Daily Spend":16472,"x":1695168000000,"y":16472,"fill":"#851a64"},{"date_produced":"2023-09-21","party":"LEW","spend":788436,"total_spend":841597,"colors":"#851a64","Date":"2023-09-21","Daily Spend":17546,"x":1695254400000,"y":17546,"fill":"#851a64"},{"date_produced":"2023-09-22","party":"LEW","spend":806000,"total_spend":841597,"colors":"#851a64","Date":"2023-09-22","Daily Spend":17564,"x":1695340800000,"y":17564,"fill":"#851a64"},{"date_produced":"2023-09-23","party":"LEW","spend":823691,"total_spend":841597,"colors":"#851a64","Date":"2023-09-23","Daily Spend":17691,"x":1695427200000,"y":17691,"fill":"#851a64"},{"date_produced":"2023-09-24","party":"LEW","spend":841597,"total_spend":841597,"colors":"#851a64","Date":"2023-09-24","Daily Spend":17906,"x":1695513600000,"y":17906,"fill":"#851a64"}],"type":"area"},{"name":"TD","data":[{"date_produced":"2023-09-19","party":"TD","spend":1124444,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#3db53a"},{"date_produced":"2023-09-20","party":"TD","spend":1137307,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-20","Daily Spend":12863,"x":1695168000000,"y":12863,"fill":"#3db53a"},{"date_produced":"2023-09-21","party":"TD","spend":1151828,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-21","Daily Spend":14521,"x":1695254400000,"y":14521,"fill":"#3db53a"},{"date_produced":"2023-09-22","party":"TD","spend":1166694,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-22","Daily Spend":14866,"x":1695340800000,"y":14866,"fill":"#3db53a"},{"date_produced":"2023-09-23","party":"TD","spend":1183480,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-23","Daily Spend":16786,"x":1695427200000,"y":16786,"fill":"#3db53a"},{"date_produced":"2023-09-24","party":"TD","spend":1200019,"total_spend":1200019,"colors":"#3db53a","Date":"2023-09-24","Daily Spend":16539,"x":1695513600000,"y":16539,"fill":"#3db53a"}],"type":"area"},{"name":"ZP","data":[{"date_produced":"2023-09-19","party":"ZP","spend":3061659,"total_spend":3261538,"colors":"#263778","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#263778"},{"date_produced":"2023-09-20","party":"ZP","spend":3101192,"total_spend":3261538,"colors":"#263778","Date":"2023-09-20","Daily Spend":39533,"x":1695168000000,"y":39533,"fill":"#263778"},{"date_produced":"2023-09-21","party":"ZP","spend":3141615,"total_spend":3261538,"colors":"#263778","Date":"2023-09-21","Daily Spend":40423,"x":1695254400000,"y":40423,"fill":"#263778"},{"date_produced":"2023-09-22","party":"ZP","spend":3184417,"total_spend":3261538,"colors":"#263778","Date":"2023-09-22","Daily Spend":42802,"x":1695340800000,"y":42802,"fill":"#263778"},{"date_produced":"2023-09-23","party":"ZP","spend":3221759,"total_spend":3261538,"colors":"#263778","Date":"2023-09-23","Daily Spend":37342,"x":1695427200000,"y":37342,"fill":"#263778"},{"date_produced":"2023-09-24","party":"ZP","spend":3261538,"total_spend":3261538,"colors":"#263778","Date":"2023-09-24","Daily Spend":39779,"x":1695513600000,"y":39779,"fill":"#263778"}],"type":"area"},{"name":"KO","data":[{"date_produced":"2023-09-19","party":"KO","spend":4344232,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-19","Daily Spend":0,"x":1695081600000,"y":0,"fill":"#f68f2d"},{"date_produced":"2023-09-20","party":"KO","spend":4378122,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-20","Daily Spend":33890,"x":1695168000000,"y":33890,"fill":"#f68f2d"},{"date_produced":"2023-09-21","party":"KO","spend":4409454,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-21","Daily Spend":31332,"x":1695254400000,"y":31332,"fill":"#f68f2d"},{"date_produced":"2023-09-22","party":"KO","spend":4441528,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-22","Daily Spend":32074,"x":1695340800000,"y":32074,"fill":"#f68f2d"},{"date_produced":"2023-09-23","party":"KO","spend":4472155,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-23","Daily Spend":30627,"x":1695427200000,"y":30627,"fill":"#f68f2d"},{"date_produced":"2023-09-24","party":"KO","spend":4505331,"total_spend":4505331,"colors":"#f68f2d","Date":"2023-09-24","Daily Spend":33176,"x":1695513600000,"y":33176,"fill":"#f68f2d"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#e6001a","#ffd900","#122746","#851a64","#3db53a","#263778","#f68f2d"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Cumulative</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Daily</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b491cf0f3361386d1929" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-b491cf0f3361386d1929">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"BS","data":[{"date_produced":"2023-09-25","party":"BS","spend":1800,"total_spend":1800,"colors":"#e6001a","Daily Spend":1800,"Date":"2023-09-25","x":1695600000000,"y":1800,"fill":"#e6001a"},{"date_produced":"2023-09-26","party":"BS","spend":3350,"total_spend":1800,"colors":"#e6001a","Daily Spend":3350,"Date":"2023-09-26","x":1695686400000,"y":3350,"fill":"#e6001a"}],"type":"area"},{"name":"TD","data":[{"date_produced":"2023-09-25","party":"TD","spend":2700,"total_spend":2750,"colors":"#3db53a","Daily Spend":2700,"Date":"2023-09-25","x":1695600000000,"y":2700,"fill":"#3db53a"},{"date_produced":"2023-09-26","party":"TD","spend":5450,"total_spend":2750,"colors":"#3db53a","Daily Spend":5450,"Date":"2023-09-26","x":1695686400000,"y":5450,"fill":"#3db53a"}],"type":"area"},{"name":"KWIN","data":[{"date_produced":"2023-09-25","party":"KWIN","spend":2750,"total_spend":10350,"colors":"#122746","Daily Spend":2750,"Date":"2023-09-25","x":1695600000000,"y":2750,"fill":"#122746"},{"date_produced":"2023-09-26","party":"KWIN","spend":13100,"total_spend":10350,"colors":"#122746","Daily Spend":13100,"Date":"2023-09-26","x":1695686400000,"y":13100,"fill":"#122746"}],"type":"area"},{"name":"LEW","data":[{"date_produced":"2023-09-25","party":"LEW","spend":9150,"total_spend":13100,"colors":"#851a64","Daily Spend":9150,"Date":"2023-09-25","x":1695600000000,"y":9150,"fill":"#851a64"},{"date_produced":"2023-09-26","party":"LEW","spend":22250,"total_spend":13100,"colors":"#851a64","Daily Spend":22250,"Date":"2023-09-26","x":1695686400000,"y":22250,"fill":"#851a64"}],"type":"area"},{"name":"KO","data":[{"date_produced":"2023-09-25","party":"KO","spend":27700,"total_spend":27700,"colors":"#f68f2d","Daily Spend":27700,"Date":"2023-09-25","x":1695600000000,"y":27700,"fill":"#f68f2d"},{"date_produced":"2023-09-26","party":"KO","spend":54500,"total_spend":27700,"colors":"#f68f2d","Daily Spend":54500,"Date":"2023-09-26","x":1695686400000,"y":54500,"fill":"#f68f2d"}],"type":"area"},{"name":"ZP","data":[{"date_produced":"2023-09-25","party":"ZP","spend":109200,"total_spend":109200,"colors":"#263778","Daily Spend":109200,"Date":"2023-09-25","x":1695600000000,"y":109200,"fill":"#263778"},{"date_produced":"2023-09-26","party":"ZP","spend":212700,"total_spend":109200,"colors":"#263778","Daily Spend":212700,"Date":"2023-09-26","x":1695686400000,"y":212700,"fill":"#263778"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#e6001a","#3db53a","#122746","#851a64","#f68f2d","#263778"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8861f4e5ae76ea29a0a4" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-8861f4e5ae76ea29a0a4">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"BS","data":[{"date_produced":"2023-09-25","party":"BS","spend":1800,"total_spend":1800,"colors":"#e6001a","Daily Spend":1800,"Date":"2023-09-25","x":1695600000000,"y":1800,"fill":"#e6001a"},{"date_produced":"2023-09-26","party":"BS","spend":1550,"total_spend":1800,"colors":"#e6001a","Daily Spend":1550,"Date":"2023-09-26","x":1695686400000,"y":1550,"fill":"#e6001a"}],"type":"area"},{"name":"TD","data":[{"date_produced":"2023-09-25","party":"TD","spend":2700,"total_spend":2750,"colors":"#3db53a","Daily Spend":2700,"Date":"2023-09-25","x":1695600000000,"y":2700,"fill":"#3db53a"},{"date_produced":"2023-09-26","party":"TD","spend":2750,"total_spend":2750,"colors":"#3db53a","Daily Spend":2750,"Date":"2023-09-26","x":1695686400000,"y":2750,"fill":"#3db53a"}],"type":"area"},{"name":"KWIN","data":[{"date_produced":"2023-09-25","party":"KWIN","spend":2750,"total_spend":10350,"colors":"#122746","Daily Spend":2750,"Date":"2023-09-25","x":1695600000000,"y":2750,"fill":"#122746"},{"date_produced":"2023-09-26","party":"KWIN","spend":10350,"total_spend":10350,"colors":"#122746","Daily Spend":10350,"Date":"2023-09-26","x":1695686400000,"y":10350,"fill":"#122746"}],"type":"area"},{"name":"LEW","data":[{"date_produced":"2023-09-25","party":"LEW","spend":9150,"total_spend":13100,"colors":"#851a64","Daily Spend":9150,"Date":"2023-09-25","x":1695600000000,"y":9150,"fill":"#851a64"},{"date_produced":"2023-09-26","party":"LEW","spend":13100,"total_spend":13100,"colors":"#851a64","Daily Spend":13100,"Date":"2023-09-26","x":1695686400000,"y":13100,"fill":"#851a64"}],"type":"area"},{"name":"KO","data":[{"date_produced":"2023-09-25","party":"KO","spend":27700,"total_spend":27700,"colors":"#f68f2d","Daily Spend":27700,"Date":"2023-09-25","x":1695600000000,"y":27700,"fill":"#f68f2d"},{"date_produced":"2023-09-26","party":"KO","spend":26800,"total_spend":27700,"colors":"#f68f2d","Daily Spend":26800,"Date":"2023-09-26","x":1695686400000,"y":26800,"fill":"#f68f2d"}],"type":"area"},{"name":"ZP","data":[{"date_produced":"2023-09-25","party":"ZP","spend":109200,"total_spend":109200,"colors":"#263778","Daily Spend":109200,"Date":"2023-09-25","x":1695600000000,"y":109200,"fill":"#263778"},{"date_produced":"2023-09-26","party":"ZP","spend":103500,"total_spend":109200,"colors":"#263778","Daily Spend":103500,"Date":"2023-09-26","x":1695686400000,"y":103500,"fill":"#263778"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#e6001a","#3db53a","#122746","#851a64","#f68f2d","#263778"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-3-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Cumulative</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Daily</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b2cb368f73d811a39cb1" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-b2cb368f73d811a39cb1">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"BS","data":[{"date_produced":"2023-09-19","party":"BS","colors":"#e6001a","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#e6001a"},{"date_produced":"2023-09-20","party":"BS","colors":"#e6001a","spend":2442,"Daily Spend":2442,"Date":"2023-09-20","x":1695168000000,"y":2442,"fill":"#e6001a"},{"date_produced":"2023-09-21","party":"BS","colors":"#e6001a","spend":5286,"Daily Spend":5286,"Date":"2023-09-21","x":1695254400000,"y":5286,"fill":"#e6001a"},{"date_produced":"2023-09-22","party":"BS","colors":"#e6001a","spend":8632,"Daily Spend":8632,"Date":"2023-09-22","x":1695340800000,"y":8632,"fill":"#e6001a"},{"date_produced":"2023-09-23","party":"BS","colors":"#e6001a","spend":12970,"Daily Spend":12970,"Date":"2023-09-23","x":1695427200000,"y":12970,"fill":"#e6001a"},{"date_produced":"2023-09-24","party":"BS","colors":"#e6001a","spend":17572,"Daily Spend":17572,"Date":"2023-09-24","x":1695513600000,"y":17572,"fill":"#e6001a"}],"type":"area"},{"name":"LIB","data":[{"date_produced":"2023-09-19","party":"LIB","colors":"#ffd900","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#ffd900"},{"date_produced":"2023-09-20","party":"LIB","colors":"#ffd900","spend":84,"Daily Spend":84,"Date":"2023-09-20","x":1695168000000,"y":84,"fill":"#ffd900"},{"date_produced":"2023-09-21","party":"LIB","colors":"#ffd900","spend":168,"Daily Spend":168,"Date":"2023-09-21","x":1695254400000,"y":168,"fill":"#ffd900"},{"date_produced":"2023-09-22","party":"LIB","colors":"#ffd900","spend":237,"Daily Spend":237,"Date":"2023-09-22","x":1695340800000,"y":237,"fill":"#ffd900"},{"date_produced":"2023-09-23","party":"LIB","colors":"#ffd900","spend":301,"Daily Spend":301,"Date":"2023-09-23","x":1695427200000,"y":301,"fill":"#ffd900"},{"date_produced":"2023-09-24","party":"LIB","colors":"#ffd900","spend":372,"Daily Spend":372,"Date":"2023-09-24","x":1695513600000,"y":372,"fill":"#ffd900"}],"type":"area"},{"name":"KWIN","data":[{"date_produced":"2023-09-19","party":"KWIN","colors":"#122746","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#122746"},{"date_produced":"2023-09-20","party":"KWIN","colors":"#122746","spend":3310,"Daily Spend":3310,"Date":"2023-09-20","x":1695168000000,"y":3310,"fill":"#122746"},{"date_produced":"2023-09-21","party":"KWIN","colors":"#122746","spend":6584,"Daily Spend":6584,"Date":"2023-09-21","x":1695254400000,"y":6584,"fill":"#122746"},{"date_produced":"2023-09-22","party":"KWIN","colors":"#122746","spend":10291,"Daily Spend":10291,"Date":"2023-09-22","x":1695340800000,"y":10291,"fill":"#122746"},{"date_produced":"2023-09-23","party":"KWIN","colors":"#122746","spend":15386,"Daily Spend":15386,"Date":"2023-09-23","x":1695427200000,"y":15386,"fill":"#122746"},{"date_produced":"2023-09-24","party":"KWIN","colors":"#122746","spend":20376,"Daily Spend":20376,"Date":"2023-09-24","x":1695513600000,"y":20376,"fill":"#122746"}],"type":"area"},{"name":"LEW","data":[{"date_produced":"2023-09-19","party":"LEW","colors":"#851a64","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#851a64"},{"date_produced":"2023-09-20","party":"LEW","colors":"#851a64","spend":16472,"Daily Spend":16472,"Date":"2023-09-20","x":1695168000000,"y":16472,"fill":"#851a64"},{"date_produced":"2023-09-21","party":"LEW","colors":"#851a64","spend":34018,"Daily Spend":34018,"Date":"2023-09-21","x":1695254400000,"y":34018,"fill":"#851a64"},{"date_produced":"2023-09-22","party":"LEW","colors":"#851a64","spend":51582,"Daily Spend":51582,"Date":"2023-09-22","x":1695340800000,"y":51582,"fill":"#851a64"},{"date_produced":"2023-09-23","party":"LEW","colors":"#851a64","spend":69273,"Daily Spend":69273,"Date":"2023-09-23","x":1695427200000,"y":69273,"fill":"#851a64"},{"date_produced":"2023-09-24","party":"LEW","colors":"#851a64","spend":87179,"Daily Spend":87179,"Date":"2023-09-24","x":1695513600000,"y":87179,"fill":"#851a64"}],"type":"area"},{"name":"TD","data":[{"date_produced":"2023-09-19","party":"TD","colors":"#3db53a","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#3db53a"},{"date_produced":"2023-09-20","party":"TD","colors":"#3db53a","spend":12863,"Daily Spend":12863,"Date":"2023-09-20","x":1695168000000,"y":12863,"fill":"#3db53a"},{"date_produced":"2023-09-21","party":"TD","colors":"#3db53a","spend":27384,"Daily Spend":27384,"Date":"2023-09-21","x":1695254400000,"y":27384,"fill":"#3db53a"},{"date_produced":"2023-09-22","party":"TD","colors":"#3db53a","spend":42250,"Daily Spend":42250,"Date":"2023-09-22","x":1695340800000,"y":42250,"fill":"#3db53a"},{"date_produced":"2023-09-23","party":"TD","colors":"#3db53a","spend":59036,"Daily Spend":59036,"Date":"2023-09-23","x":1695427200000,"y":59036,"fill":"#3db53a"},{"date_produced":"2023-09-24","party":"TD","colors":"#3db53a","spend":75575,"Daily Spend":75575,"Date":"2023-09-24","x":1695513600000,"y":75575,"fill":"#3db53a"}],"type":"area"},{"name":"ZP","data":[{"date_produced":"2023-09-19","party":"ZP","colors":"#263778","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#263778"},{"date_produced":"2023-09-20","party":"ZP","colors":"#263778","spend":39533,"Daily Spend":39533,"Date":"2023-09-20","x":1695168000000,"y":39533,"fill":"#263778"},{"date_produced":"2023-09-21","party":"ZP","colors":"#263778","spend":79956,"Daily Spend":79956,"Date":"2023-09-21","x":1695254400000,"y":79956,"fill":"#263778"},{"date_produced":"2023-09-22","party":"ZP","colors":"#263778","spend":122758,"Daily Spend":122758,"Date":"2023-09-22","x":1695340800000,"y":122758,"fill":"#263778"},{"date_produced":"2023-09-23","party":"ZP","colors":"#263778","spend":160100,"Daily Spend":160100,"Date":"2023-09-23","x":1695427200000,"y":160100,"fill":"#263778"},{"date_produced":"2023-09-24","party":"ZP","colors":"#263778","spend":199879,"Daily Spend":199879,"Date":"2023-09-24","x":1695513600000,"y":199879,"fill":"#263778"}],"type":"area"},{"name":"KO","data":[{"date_produced":"2023-09-19","party":"KO","colors":"#f68f2d","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#f68f2d"},{"date_produced":"2023-09-20","party":"KO","colors":"#f68f2d","spend":33890,"Daily Spend":33890,"Date":"2023-09-20","x":1695168000000,"y":33890,"fill":"#f68f2d"},{"date_produced":"2023-09-21","party":"KO","colors":"#f68f2d","spend":65222,"Daily Spend":65222,"Date":"2023-09-21","x":1695254400000,"y":65222,"fill":"#f68f2d"},{"date_produced":"2023-09-22","party":"KO","colors":"#f68f2d","spend":97296,"Daily Spend":97296,"Date":"2023-09-22","x":1695340800000,"y":97296,"fill":"#f68f2d"},{"date_produced":"2023-09-23","party":"KO","colors":"#f68f2d","spend":127923,"Daily Spend":127923,"Date":"2023-09-23","x":1695427200000,"y":127923,"fill":"#f68f2d"},{"date_produced":"2023-09-24","party":"KO","colors":"#f68f2d","spend":161099,"Daily Spend":161099,"Date":"2023-09-24","x":1695513600000,"y":161099,"fill":"#f68f2d"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#e6001a","#ffd900","#122746","#851a64","#3db53a","#263778","#f68f2d"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-01bbc64cb9370d5fcff9" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-01bbc64cb9370d5fcff9">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"BS","data":[{"date_produced":"2023-09-19","party":"BS","colors":"#e6001a","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#e6001a"},{"date_produced":"2023-09-20","party":"BS","colors":"#e6001a","spend":2442,"Daily Spend":2442,"Date":"2023-09-20","x":1695168000000,"y":2442,"fill":"#e6001a"},{"date_produced":"2023-09-21","party":"BS","colors":"#e6001a","spend":2844,"Daily Spend":2844,"Date":"2023-09-21","x":1695254400000,"y":2844,"fill":"#e6001a"},{"date_produced":"2023-09-22","party":"BS","colors":"#e6001a","spend":3346,"Daily Spend":3346,"Date":"2023-09-22","x":1695340800000,"y":3346,"fill":"#e6001a"},{"date_produced":"2023-09-23","party":"BS","colors":"#e6001a","spend":4338,"Daily Spend":4338,"Date":"2023-09-23","x":1695427200000,"y":4338,"fill":"#e6001a"},{"date_produced":"2023-09-24","party":"BS","colors":"#e6001a","spend":4602,"Daily Spend":4602,"Date":"2023-09-24","x":1695513600000,"y":4602,"fill":"#e6001a"}],"type":"area"},{"name":"TD","data":[{"date_produced":"2023-09-19","party":"TD","colors":"#3db53a","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#3db53a"},{"date_produced":"2023-09-20","party":"TD","colors":"#3db53a","spend":12863,"Daily Spend":12863,"Date":"2023-09-20","x":1695168000000,"y":12863,"fill":"#3db53a"},{"date_produced":"2023-09-21","party":"TD","colors":"#3db53a","spend":14521,"Daily Spend":14521,"Date":"2023-09-21","x":1695254400000,"y":14521,"fill":"#3db53a"},{"date_produced":"2023-09-22","party":"TD","colors":"#3db53a","spend":14866,"Daily Spend":14866,"Date":"2023-09-22","x":1695340800000,"y":14866,"fill":"#3db53a"},{"date_produced":"2023-09-23","party":"TD","colors":"#3db53a","spend":16786,"Daily Spend":16786,"Date":"2023-09-23","x":1695427200000,"y":16786,"fill":"#3db53a"},{"date_produced":"2023-09-24","party":"TD","colors":"#3db53a","spend":16539,"Daily Spend":16539,"Date":"2023-09-24","x":1695513600000,"y":16539,"fill":"#3db53a"}],"type":"area"},{"name":"KWIN","data":[{"date_produced":"2023-09-19","party":"KWIN","colors":"#122746","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#122746"},{"date_produced":"2023-09-20","party":"KWIN","colors":"#122746","spend":3310,"Daily Spend":3310,"Date":"2023-09-20","x":1695168000000,"y":3310,"fill":"#122746"},{"date_produced":"2023-09-21","party":"KWIN","colors":"#122746","spend":3274,"Daily Spend":3274,"Date":"2023-09-21","x":1695254400000,"y":3274,"fill":"#122746"},{"date_produced":"2023-09-22","party":"KWIN","colors":"#122746","spend":3707,"Daily Spend":3707,"Date":"2023-09-22","x":1695340800000,"y":3707,"fill":"#122746"},{"date_produced":"2023-09-23","party":"KWIN","colors":"#122746","spend":5095,"Daily Spend":5095,"Date":"2023-09-23","x":1695427200000,"y":5095,"fill":"#122746"},{"date_produced":"2023-09-24","party":"KWIN","colors":"#122746","spend":4990,"Daily Spend":4990,"Date":"2023-09-24","x":1695513600000,"y":4990,"fill":"#122746"}],"type":"area"},{"name":"LEW","data":[{"date_produced":"2023-09-19","party":"LEW","colors":"#851a64","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#851a64"},{"date_produced":"2023-09-20","party":"LEW","colors":"#851a64","spend":16472,"Daily Spend":16472,"Date":"2023-09-20","x":1695168000000,"y":16472,"fill":"#851a64"},{"date_produced":"2023-09-21","party":"LEW","colors":"#851a64","spend":17546,"Daily Spend":17546,"Date":"2023-09-21","x":1695254400000,"y":17546,"fill":"#851a64"},{"date_produced":"2023-09-22","party":"LEW","colors":"#851a64","spend":17564,"Daily Spend":17564,"Date":"2023-09-22","x":1695340800000,"y":17564,"fill":"#851a64"},{"date_produced":"2023-09-23","party":"LEW","colors":"#851a64","spend":17691,"Daily Spend":17691,"Date":"2023-09-23","x":1695427200000,"y":17691,"fill":"#851a64"},{"date_produced":"2023-09-24","party":"LEW","colors":"#851a64","spend":17906,"Daily Spend":17906,"Date":"2023-09-24","x":1695513600000,"y":17906,"fill":"#851a64"}],"type":"area"},{"name":"KO","data":[{"date_produced":"2023-09-19","party":"KO","colors":"#f68f2d","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#f68f2d"},{"date_produced":"2023-09-20","party":"KO","colors":"#f68f2d","spend":33890,"Daily Spend":33890,"Date":"2023-09-20","x":1695168000000,"y":33890,"fill":"#f68f2d"},{"date_produced":"2023-09-21","party":"KO","colors":"#f68f2d","spend":31332,"Daily Spend":31332,"Date":"2023-09-21","x":1695254400000,"y":31332,"fill":"#f68f2d"},{"date_produced":"2023-09-22","party":"KO","colors":"#f68f2d","spend":32074,"Daily Spend":32074,"Date":"2023-09-22","x":1695340800000,"y":32074,"fill":"#f68f2d"},{"date_produced":"2023-09-23","party":"KO","colors":"#f68f2d","spend":30627,"Daily Spend":30627,"Date":"2023-09-23","x":1695427200000,"y":30627,"fill":"#f68f2d"},{"date_produced":"2023-09-24","party":"KO","colors":"#f68f2d","spend":33176,"Daily Spend":33176,"Date":"2023-09-24","x":1695513600000,"y":33176,"fill":"#f68f2d"}],"type":"area"},{"name":"ZP","data":[{"date_produced":"2023-09-19","party":"ZP","colors":"#263778","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#263778"},{"date_produced":"2023-09-20","party":"ZP","colors":"#263778","spend":39533,"Daily Spend":39533,"Date":"2023-09-20","x":1695168000000,"y":39533,"fill":"#263778"},{"date_produced":"2023-09-21","party":"ZP","colors":"#263778","spend":40423,"Daily Spend":40423,"Date":"2023-09-21","x":1695254400000,"y":40423,"fill":"#263778"},{"date_produced":"2023-09-22","party":"ZP","colors":"#263778","spend":42802,"Daily Spend":42802,"Date":"2023-09-22","x":1695340800000,"y":42802,"fill":"#263778"},{"date_produced":"2023-09-23","party":"ZP","colors":"#263778","spend":37342,"Daily Spend":37342,"Date":"2023-09-23","x":1695427200000,"y":37342,"fill":"#263778"},{"date_produced":"2023-09-24","party":"ZP","colors":"#263778","spend":39779,"Daily Spend":39779,"Date":"2023-09-24","x":1695513600000,"y":39779,"fill":"#263778"}],"type":"area"},{"name":"LIB","data":[{"date_produced":"2023-09-19","party":"LIB","colors":"#ffd900","spend":0,"Daily Spend":0,"Date":"2023-09-19","x":1695081600000,"y":0,"fill":"#ffd900"},{"date_produced":"2023-09-20","party":"LIB","colors":"#ffd900","spend":84,"Daily Spend":84,"Date":"2023-09-20","x":1695168000000,"y":84,"fill":"#ffd900"},{"date_produced":"2023-09-21","party":"LIB","colors":"#ffd900","spend":84,"Daily Spend":84,"Date":"2023-09-21","x":1695254400000,"y":84,"fill":"#ffd900"},{"date_produced":"2023-09-22","party":"LIB","colors":"#ffd900","spend":69,"Daily Spend":69,"Date":"2023-09-22","x":1695340800000,"y":69,"fill":"#ffd900"},{"date_produced":"2023-09-23","party":"LIB","colors":"#ffd900","spend":64,"Daily Spend":64,"Date":"2023-09-23","x":1695427200000,"y":64,"fill":"#ffd900"},{"date_produced":"2023-09-24","party":"LIB","colors":"#ffd900","spend":71,"Daily Spend":71,"Date":"2023-09-24","x":1695513600000,"y":71,"fill":"#ffd900"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#e6001a","#3db53a","#122746","#851a64","#f68f2d","#263778","#ffd900"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
