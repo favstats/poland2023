@@ -410,7 +410,10 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 
 ```{r, fig.width=12, fig.height=8, dpi=300}
-ggl_daily <- readRDS("../data/ggl_daily_spending.rds")
+ggl_daily <- readRDS("../data/ggl_daily_spending.rds") %>% 
+  ### TODO: CHANGE
+  filter(str_detect(eur_amount, "EUR", negate = T)) %>% 
+  select(-contains("party1"))
 ggl_spend <- readRDS("../data/ggl_spend.rds")
 
 
@@ -509,10 +512,6 @@ eval(parse(text = paste0("gt(ggl_all7, rowname_col = 'party_col') %>% fmt_markdo
 
 
 ```{r, fig.width=12, fig.height=8, dpi=300}
-ggl_daily <- readRDS("../data/ggl_daily_spending.rds")
-ggl_spend <- readRDS("../data/ggl_spend.rds")
-
-
 
 # plotly::ggplotly(ht)
  
@@ -676,12 +675,6 @@ hc_data_cum_raw <-  more_data %>%
     group_by(date_produced, party) %>%
     summarize(spend  = sum(spend)) %>%
     ungroup() %>%
-  # spread(key = party, value = spend, fill = 0) %>%
-  # arrange(date_produced) %>%
-  # mutate(across(starts_with("50PLUS"):(last_col()), ~cumsum(.), .names = "cumulative_{.col}")) %>%
-  # select(date_produced, starts_with("cumulative")) %>%
-  # rename_with(~str_remove(., "cumulative_"), starts_with("cumulative")) %>%
-  # pivot_longer(-date_produced, names_to = "party", values_to = "spend")  %>%
   group_by(party) %>%
   mutate(total_spend = max(spend)) %>%
   ungroup()  %>%
@@ -718,9 +711,17 @@ color_order <- hc_data_cum_raw %>%
 hc_data_cumfb <- hc_data_cum_raw %>%
   mutate(Date = date_produced) %>%
   group_by(party) %>%  # Assuming you have a 'party' column
-  arrange(Date) %>% 
-  mutate(`Daily Spend` = spend - first(spend)) %>%
-  ungroup() 
+  arrange(Date)  %>%
+ mutate(Daily_Diff = if_else(row_number() == 1, lead(spend) - spend, spend - lag(spend)),
+         `Daily Spend` = cumsum(Daily_Diff)) %>%
+  # mutate(`Daily Spend` = spend - first(spend) + first(spend)) %>% 
+  ungroup() %>% 
+  #   mutate(`Daily Spend` = spend)
+  # # mutate(`Daily Spend` = spend - first(spend)) %>%
+  # # ungroup() %>%
+  # mutate(`Daily Spend` = spend - lag(spend, default = first(spend))) %>%
+  # ungroup()
+  filter(min(Date)!=Date)
 
 hc_data_cumfb %>% 
   # mutate(spend)
@@ -754,10 +755,11 @@ hc_data_cumfb %>%
 # Compute global minimum and maximum date
 hc_data_dafb <- hc_data_cum_raw %>%
   mutate(Date = date_produced) %>%
-  group_by(party) %>%  # Assuming you have a 'party' column
+  group_by(party) %>%  
   arrange(Date) %>%  # Ensure the data is in the correct order
-  mutate(`Daily Spend` = spend - lag(spend, default = first(spend))) %>%
-  ungroup() 
+ mutate(`Daily Spend` = if_else(row_number() == 1, lead(spend) - spend, spend - lag(spend))) %>% 
+  ungroup() %>% 
+  filter(min(Date)!=Date)
 
 hc_data_dafb %>% 
   # mutate(spend)
@@ -809,7 +811,7 @@ hc_data_dafb %>%
 
 
 
-hc_data_cumggl <-  ggl_daily %>%
+hc_data_cumggl <-  ggl_daily  %>% 
     rename(Advertiser_ID = advertiser_id) %>%
     left_join(ggl_spend %>% distinct(Advertiser_ID, party1)) %>% 
     janitor::clean_names()  %>% 
@@ -829,7 +831,8 @@ hc_data_cumggl <-  ggl_daily %>%
   group_by(party) %>%
   arrange(date_produced) %>% 
   mutate(spend = cumsum(spend)) %>%
-  ungroup()
+  ungroup() #%>% 
+  # filter(min(date_produced)!=date_produced)
 
 # saveRDS(hc_data, "data/hc_data.rds")
 
@@ -865,7 +868,11 @@ hc_data_cumggl  %>%
         return { x: 200, y: this.chart.plotTop };
     }")
   ) 
+
+
 ```
+
+
 
 
 ### Daily
@@ -890,7 +897,8 @@ hc_data_daggl <-  ggl_daily %>%
   ungroup()  %>%
   left_join(color_dat, by = "party") %>%
   mutate(party = as.factor(party)) %>% 
-  mutate(party = fct_reorder(party, total_spend))
+  mutate(party = fct_reorder(party, total_spend)) #%>% 
+  # filter(min(date_produced)!=date_produced)
 
 # saveRDS(hc_data, "data/hc_data.rds")
 
@@ -955,7 +963,7 @@ hc_data_cum <- hc_data_cumfb %>%
   filter(date_produced <= max(hc_data_cumfb$date_produced)) %>% 
   group_by(date_produced, party, colors) %>% 
   summarise(spend = sum(spend)) %>% 
-  ungroup()
+  ungroup() 
 
 color_order <- hc_data_cum %>% 
   distinct(party, .keep_all = T) %>% 
@@ -1009,7 +1017,8 @@ hc_data_da <- hc_data_daggl %>%
   filter(date_produced <= max(hc_data_dafb$date_produced)) %>% 
   group_by(date_produced, party, colors) %>% 
   summarise(spend = sum(spend)) %>% 
-  ungroup()
+  ungroup() #%>% 
+  # filter(min(Date)!=Date)
 
 # saveRDS(hc_data, "data/hc_data.rds")
 

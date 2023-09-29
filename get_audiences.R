@@ -16,6 +16,13 @@ new <- F
 
 sets <- jsonlite::fromJSON("settings.json")
 
+unlink("targeting/7", recursive = T, force = T)
+unlink("targeting/30", recursive = T, force = T)
+
+dir.create("targeting/7")
+dir.create("targeting/30")
+
+
 title_txt <- read_lines("_site/_quarto.yml")
 title_txt[which(str_detect(title_txt, "title"))] <-  glue::glue('  title: "{sets$dashboard}"')
 write_lines(title_txt, "_site/_quarto.yml")

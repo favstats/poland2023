@@ -181,7 +181,12 @@ retrieve_spend_daily <- function(id, the_date, cntry = sets$cntry) {
 # daily_spending <- readRDS("data/daily_spending.rds")
 # Apr 17, 2023 - May 16, 2023
 # 13 February 2023
-timelines <- seq.Date(as.Date("2023-09-01"), lubridate::today()-lubridate::days(1), by = "day")
+### always include one day before the day you want
+### not necessary for google just for FB
+
+themindate <- as.Date("2023-09-01")# - lubridate::days(1)
+
+timelines <- seq.Date(themindate, lubridate::today()-lubridate::days(1), by = "day")
 
 # 
 try({

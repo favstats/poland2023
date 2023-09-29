@@ -261,12 +261,15 @@ dir.create("extracted")
 dir.create("report")
 print("creation")
 
+##TODO: change date
+
+daybefore <- lubridate::ymd("2023-09-01") - lubridate::days(1)
 
 dt %>%
   # arrange(day, country != "RU") %>%
   filter(country == cntry_str) %>%
   arrange(desc(day), country) %>%
-  filter(day >= lubridate::ymd("2023-09-20")) %>% 
+  filter(day >= daybefore) %>% 
   # slice(1:7) %>%
   split(1:nrow(.)) %>% #bashR::simule_map(1)
   walk_progress( ~ {
