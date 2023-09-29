@@ -769,7 +769,7 @@ contested_dat <- interest_targeting %>%
 ### `r last30days_string` (Last 30 days)
 
 ```{r}
-thegraph30 <- get_contested_graph(election_dat30, minamount = 1000)
+thegraph30 <- get_contested_graph(election_dat30, minamount = 2000)
 
 if(length(thegraph30$x$hc_opts$series)!=0){
   thegraph30
