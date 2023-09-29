@@ -1417,7 +1417,9 @@ charts <- gender_targeting %>%
 # Map each plot to a column
 columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
 
-# If there's an odd number of plots, add an empty div to the end to balance the columns
+if(length(columns)!=0){
+  
+  # If there's an odd number of plots, add an empty div to the end to balance the columns
 if (length(columns) %% 2 == 1) {
   columns <- c(columns, list(div(style = "width: 50%; float: left;")))
 }
@@ -1432,8 +1434,16 @@ rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
   )
 })
 
+
+
 # Print the rows
 tags$div(class = "container", do.call(tags$div, rows))
+  
+} else {
+  shiny::HTML("No data (yet).")
+}
+
+
 
 
 ```
@@ -1493,7 +1503,9 @@ charts <- gender_targeting %>%
 # Map each plot to a column
 columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
 
-# If there's an odd number of plots, add an empty div to the end to balance the columns
+if(length(columns)!=0){
+  
+  # If there's an odd number of plots, add an empty div to the end to balance the columns
 if (length(columns) %% 2 == 1) {
   columns <- c(columns, list(div(style = "width: 50%; float: left;")))
 }
@@ -1508,8 +1520,16 @@ rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
   )
 })
 
+
+
 # Print the rows
 tags$div(class = "container", do.call(tags$div, rows))
+  
+} else {
+  shiny::HTML("No data (yet).")
+}
+
+
 
 
 ```
@@ -1617,11 +1637,12 @@ charts <- educ_targeting %>%
 
     
 
-
 # Map each plot to a column
 columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
 
-# If there's an odd number of plots, add an empty div to the end to balance the columns
+if(length(columns)!=0){
+  
+  # If there's an odd number of plots, add an empty div to the end to balance the columns
 if (length(columns) %% 2 == 1) {
   columns <- c(columns, list(div(style = "width: 50%; float: left;")))
 }
@@ -1636,8 +1657,16 @@ rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
   )
 })
 
+
+
 # Print the rows
 tags$div(class = "container", do.call(tags$div, rows))
+  
+} else {
+  shiny::HTML("No data (yet).")
+}
+
+
 
 
 ```
@@ -1699,7 +1728,9 @@ charts <- educ_targeting %>%
 # Map each plot to a column
 columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
 
-# If there's an odd number of plots, add an empty div to the end to balance the columns
+if(length(columns)!=0){
+  
+  # If there's an odd number of plots, add an empty div to the end to balance the columns
 if (length(columns) %% 2 == 1) {
   columns <- c(columns, list(div(style = "width: 50%; float: left;")))
 }
@@ -1714,8 +1745,16 @@ rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
   )
 })
 
+
+
 # Print the rows
 tags$div(class = "container", do.call(tags$div, rows))
+  
+} else {
+  shiny::HTML("No data (yet).")
+}
+
+
 
 
 ```
@@ -1863,7 +1902,13 @@ rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
 # Print the rows
 tags$div(class = "container", do.call(tags$div, rows))
     
+}  else {
+  shiny::HTML("No data (yet).")
 }
+
+
+
+
 
 
 
@@ -1963,7 +2008,11 @@ rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
 # Print the rows
 tags$div(class = "container", do.call(tags$div, rows))
     
+}  else {
+  shiny::HTML("No data (yet).")
 }
+
+
 
 
 ```
