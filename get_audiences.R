@@ -27,9 +27,12 @@ title_txt <- read_lines("_site/_quarto.yml")
 title_txt[which(str_detect(title_txt, "title"))] <-  glue::glue('  title: "{sets$dashboard}"')
 write_lines(title_txt, "_site/_quarto.yml")
 
-# tf <- Sys.getenv("TIMEFRAME")c
-# tf <- "7"
-# print(tf)
+if(Sys.info()[["sysname"]]=="Windows"){
+  ### CHANGE ME WHEN LOCAL!
+  tf <- "30"
+}
+
+
 
 if(!new){
   
