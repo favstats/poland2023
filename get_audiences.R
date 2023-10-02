@@ -19,8 +19,8 @@ sets <- jsonlite::fromJSON("settings.json")
 unlink("targeting/7", recursive = T, force = T)
 unlink("targeting/30", recursive = T, force = T)
 
-dir.create("targeting/7")
-dir.create("targeting/30")
+dir.create("targeting/7", recursive = T)
+dir.create("targeting/30", recursive = T)
 
 
 title_txt <- read_lines("_site/_quarto.yml")
@@ -164,6 +164,7 @@ if(new_ds == latest_ds){
     arrange(page_id) %>%
     # slice(1:50) %>%
     # slice(1) %>%
+    # sample_n(50) %>% 
     split(1:nrow(.)) %>%
     map_dfr_progress(scraper)  %>%
     mutate_at(vars(contains("total_spend_formatted")), ~parse_number(as.character(.x))) %>% 
