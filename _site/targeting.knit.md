@@ -1,239 +1,66 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>🇵🇱 2023 Polish Election Dashboard - Targeting</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
-<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
-<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
-<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
-<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
-<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
-<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
-<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
-<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
-
-
-</head>
-
-<body class="floating nav-fixed">
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">🇵🇱 2023 Polish Election Dashboard</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Spending</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./targeting.html" rel="" target="" aria-current="page">
- <span class="menu-text">Targeting</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/favstats" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/favstats" rel="" target=""><i class="bi bi-twitter" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
-            <div class="quarto-navbar-tools">
-</div>
-          </div> <!-- /navcollapse -->
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#spending-per-targeting-criteria" id="toc-spending-per-targeting-criteria" class="nav-link active" data-scroll-target="#spending-per-targeting-criteria">Spending per Targeting Criteria</a></li>
-  <li><a href="#detailed-audiences" id="toc-detailed-audiences" class="nav-link" data-scroll-target="#detailed-audiences">Detailed Audiences</a>
-  <ul class="collapse">
-  <li><a href="#top-targeted-detailed-audiences" id="toc-top-targeted-detailed-audiences" class="nav-link" data-scroll-target="#top-targeted-detailed-audiences">Top Targeted (Detailed) Audiences</a></li>
-  <li><a href="#top-excluded-detailed-audiences" id="toc-top-excluded-detailed-audiences" class="nav-link" data-scroll-target="#top-excluded-detailed-audiences">Top Excluded (Detailed) Audiences</a></li>
-  <li><a href="#top-contested-audiences" id="toc-top-contested-audiences" class="nav-link" data-scroll-target="#top-contested-audiences">Top Contested Audiences</a></li>
-  </ul></li>
-  <li><a href="#location" id="toc-location" class="nav-link" data-scroll-target="#location">Location</a>
-  <ul class="collapse">
-  <li><a href="#geographical-targeting" id="toc-geographical-targeting" class="nav-link" data-scroll-target="#geographical-targeting">Geographical Targeting</a></li>
-  <li><a href="#geographical-exclusion" id="toc-geographical-exclusion" class="nav-link" data-scroll-target="#geographical-exclusion">Geographical Exclusion</a></li>
-  </ul></li>
-  <li><a href="#demographic" id="toc-demographic" class="nav-link" data-scroll-target="#demographic">Demographic</a>
-  <ul class="collapse">
-  <li><a href="#age-targeting" id="toc-age-targeting" class="nav-link" data-scroll-target="#age-targeting">Age Targeting</a></li>
-  <li><a href="#gender-targeting" id="toc-gender-targeting" class="nav-link" data-scroll-target="#gender-targeting">Gender Targeting</a></li>
-  <li><a href="#education-targeting" id="toc-education-targeting" class="nav-link" data-scroll-target="#education-targeting">Education Targeting</a></li>
-  <li><a href="#job-targeting" id="toc-job-targeting" class="nav-link" data-scroll-target="#job-targeting">Job Targeting</a></li>
-  </ul></li>
-  </ul>
-</nav>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Targeting</h1>
-</div>
+---
+title: "Targeting"
+format:
+  html:
+    theme: lumen
+    toc: true
+    toc-location: left
+---
 
 
 
-<div class="quarto-title-meta">
+::: {.cell}
 
-    
-  
-    
-  </div>
-  
+:::
 
-</header>
+::: {.cell}
 
-<p>This section shows spending per <em>targeting criteria</em> used by political parties to reach citizens in the run-up to the 2023 Polish parliamentary election for the latest available data. It only includes targeting on Meta platforms (Facebook and Instagram), which offers the most detailed targeting options to political advertisers.</p>
-<section id="spending-per-targeting-criteria" class="level2">
-<h2 class="anchored" data-anchor-id="spending-per-targeting-criteria">Spending per Targeting Criteria</h2>
-<p>How much did campaigns spend on different targeting methods? The graphs below show spending <em>overall</em> across all parties and <em>by party</em>.</p>
-<blockquote class="blockquote">
-<p>Note: targeting criteria can overlap so the percentages do not sum up to 100%.</p>
-</blockquote>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Sep 26th - Oct 2nd 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Overall</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">By Party</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<div class="cell-output-display">
+:::
 
+
+This section shows spending per *targeting criteria* used by political parties to reach citizens in the run-up to the 2023 Polish parliamentary election for the latest available data. It only includes targeting on Meta platforms (Facebook and Instagram), which offers the most detailed targeting options to political advertisers.
+
+
+
+## Spending per Targeting Criteria 
+
+How much did campaigns spend on different targeting methods? The graphs below show spending *overall* across all parties and *by party*.
+
+> Note: targeting criteria can overlap so the percentages do not sum up to 100%.
+
+::: {.panel-tabset}
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days) 
+
+::: {.panel-tabset}
+
+
+
+#### Overall
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+```{=html}
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e6a5779547df94b06934" style="width:100%;height:406px;"></div>
 <script type="application/json" data-for="htmlwidget-e6a5779547df94b06934">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Budget spent on targeting method (% of Total spend)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"color":"darkgrey"}},"series":[{"group":"group","data":[{"spend_per":1405072.49505793,"target":"GEOGRAPHY: Entire Country","total":2986512,"perc":47.0472743808807,"n":1,"spend_perlab":"1,405,072","y":47.0472743808807,"name":"GEOGRAPHY: Entire Country"},{"spend_per":1308011.1255487,"target":"Language","total":2986512,"perc":43.7972834379603,"n":1,"spend_perlab":"1,308,011","y":43.7972834379603,"name":"Language"},{"spend_per":1002314.03381834,"target":"GEOGRAPHY: City","total":2986512,"perc":33.5613596670074,"n":1,"spend_perlab":"1,002,314","y":33.5613596670074,"name":"GEOGRAPHY: City"},{"spend_per":829045.717286546,"target":"Custom Audiences","total":2986512,"perc":27.7596646953552,"n":1,"spend_perlab":"829,046","y":27.7596646953552,"name":"Custom Audiences"},{"spend_per":682582.911803134,"target":"Detailed","total":2986512,"perc":22.8555221543772,"n":1,"spend_perlab":"682,583","y":22.8555221543772,"name":"Detailed"},{"spend_per":280511.03064261,"target":"Gender","total":2986512,"perc":9.39259680331471,"n":1,"spend_perlab":"280,511","y":9.39259680331471,"name":"Gender"},{"spend_per":136233.471376927,"target":"GEOGRAPHY: Regions","total":2986512,"perc":4.56162477756418,"n":1,"spend_perlab":"136,233","y":4.56162477756418,"name":"GEOGRAPHY: Regions"},{"spend_per":135924.107039223,"target":"Age","total":2986512,"perc":4.55126606018067,"n":1,"spend_perlab":"135,924","y":4.55126606018067,"name":"Age"},{"spend_per":82072.2534199165,"target":"GEOGRAPHY: Postal Code","total":2986512,"perc":2.74809722579104,"n":1,"spend_perlab":"82,072","y":2.74809722579104,"name":"GEOGRAPHY: Postal Code"},{"spend_per":81477.4224674059,"target":"Lookalike Audiences","total":2986512,"perc":2.7281799794344,"n":1,"spend_perlab":"81,477","y":2.7281799794344,"name":"Lookalike Audiences"},{"spend_per":33334.6845999411,"target":"multi_city","total":2986512,"perc":1.11617447376542,"n":1,"spend_perlab":"33,335","y":1.11617447376542,"name":"multi_city"},{"spend_per":2164.5029301846,"target":"GEOGRAPHY: Neighborhood","total":2986512,"perc":0.0724759495419608,"n":1,"spend_perlab":"2,165","y":0.0724759495419608,"name":"GEOGRAPHY: Neighborhood"},{"spend_per":1717.80975695589,"target":"VILLAGE","total":2986512,"perc":0.0575189303426837,"n":1,"spend_perlab":"1,718","y":0.0575189303426837,"name":"VILLAGE"},{"spend_per":1432.26665749313,"target":"TOWN","total":2986512,"perc":0.0479578403667266,"n":1,"spend_perlab":"1,432","y":0.0479578403667266,"name":"TOWN"},{"spend_per":769.302815997421,"target":"GMINA","total":2986512,"perc":0.0257592407463094,"n":1,"spend_perlab":"769","y":0.0257592407463094,"name":"GMINA"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.target}<\/b><br>% of Total Budget Spent: {point.y:.1f}%<br>Spend a total of zł{point.spend_perlab} on this method.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell-output-display">
+```
+:::
+:::
 
+
+
+#### By Party
+
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -275,27 +102,43 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Overall</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">By Party</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="cell">
-<div class="cell-output-display">
+```
+:::
 
+
+
+::: 
+
+### Sep 26th - Oct 2nd 2023 (Last 7 days)
+
+
+::: {.panel-tabset}
+
+
+#### Overall
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+```{=html}
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0d76b2f152c5d519f702" style="width:100%;height:406px;"></div>
 <script type="application/json" data-for="htmlwidget-0d76b2f152c5d519f702">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Budget spent on targeting method (% of Total spend)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"color":"darkgrey"}},"series":[{"group":"group","data":[{"spend_per":484688.287279661,"target":"Language","total":1066788,"perc":45.4343587741576,"n":1,"spend_perlab":"484,688","y":45.4343587741576,"name":"Language"},{"spend_per":430721.141448096,"target":"GEOGRAPHY: City","total":1066788,"perc":40.3755142960078,"n":1,"spend_perlab":"430,721","y":40.3755142960078,"name":"GEOGRAPHY: City"},{"spend_per":426163.047421466,"target":"GEOGRAPHY: Entire Country","total":1066788,"perc":39.9482415832823,"n":1,"spend_perlab":"426,163","y":39.9482415832823,"name":"GEOGRAPHY: Entire Country"},{"spend_per":253123.380993956,"target":"Custom Audiences","total":1066788,"perc":23.7276179516414,"n":1,"spend_perlab":"253,123","y":23.7276179516414,"name":"Custom Audiences"},{"spend_per":248182.157053219,"target":"Detailed","total":1066788,"perc":23.264430894725,"n":1,"spend_perlab":"248,182","y":23.264430894725,"name":"Detailed"},{"spend_per":102160.174548247,"target":"Gender","total":1066788,"perc":9.57642704532178,"n":1,"spend_perlab":"102,160","y":9.57642704532178,"name":"Gender"},{"spend_per":79849.4322229066,"target":"Age","total":1066788,"perc":7.48503284841098,"n":1,"spend_perlab":"79,849","y":7.48503284841098,"name":"Age"},{"spend_per":57229.6831420324,"target":"GEOGRAPHY: Regions","total":1066788,"perc":5.36467256306149,"n":1,"spend_perlab":"57,230","y":5.36467256306149,"name":"GEOGRAPHY: Regions"},{"spend_per":24240.777402395,"target":"Lookalike Audiences","total":1066788,"perc":2.27231440571088,"n":1,"spend_perlab":"24,241","y":2.27231440571088,"name":"Lookalike Audiences"},{"spend_per":23479.5459888867,"target":"GEOGRAPHY: Postal Code","total":1066788,"perc":2.20095707759055,"n":1,"spend_perlab":"23,480","y":2.20095707759055,"name":"GEOGRAPHY: Postal Code"},{"spend_per":5506.68601910801,"target":"multi_city","total":1066788,"perc":0.516193097326555,"n":1,"spend_perlab":"5,507","y":0.516193097326555,"name":"multi_city"},{"spend_per":1029.34775283586,"target":"GEOGRAPHY: Neighborhood","total":1066788,"perc":0.0964903760480868,"n":1,"spend_perlab":"1,029","y":0.0964903760480868,"name":"GEOGRAPHY: Neighborhood"},{"spend_per":903.785181154896,"target":"TOWN","total":1066788,"perc":0.0847202238078134,"n":1,"spend_perlab":"904","y":0.0847202238078134,"name":"TOWN"},{"spend_per":848.494455947118,"target":"VILLAGE","total":1066788,"perc":0.0795373078762714,"n":1,"spend_perlab":"848","y":0.0795373078762714,"name":"VILLAGE"},{"spend_per":209.829403252005,"target":"GMINA","total":1066788,"perc":0.0196692691755068,"n":1,"spend_perlab":"210","y":0.0196692691755068,"name":"GMINA"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.target}<\/b><br>% of Total Budget Spent: {point.y:.1f}%<br>Spend a total of zł{point.spend_perlab} on this method.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="cell-output-display">
+```
+:::
+:::
 
+
+
+#### By Party
+
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -337,25 +180,44 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="detailed-audiences" class="level1">
-<h1>Detailed Audiences</h1>
-<section id="top-targeted-detailed-audiences" class="level2">
-<h2 class="anchored" data-anchor-id="top-targeted-detailed-audiences">Top Targeted (Detailed) Audiences</h2>
-<p>Here, we show the <em>top targeted audiences</em> for each party for the “detailed” targeting that Meta offers (ranked by amount of Euro spend). Most (but not all) of these audiences are “interest” audiences, i.e.&nbsp;the parties targeted people interested in “Books” or “Politics”.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Sep 26th - Oct 2nd 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+::: 
+
+
+::: 
+
+# Detailed Audiences
+
+## Top Targeted (Detailed) Audiences 
+
+Here, we show the *top targeted audiences* for each party for the "detailed" targeting that Meta offers (ranked by amount of Euro spend). Most (but not all) of these audiences are “interest” audiences, i.e. the parties targeted people interested in “Books” or “Politics”.
+
+::: {.panel-tabset}
+
+
+
+
+::: {.cell}
+
+:::
+
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+
+
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -397,11 +259,18 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+
+### Sep 26th - Oct 2nd 2023 (Last 7 days)
+
+
+
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -443,20 +312,33 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="top-excluded-detailed-audiences" class="level2">
-<h2 class="anchored" data-anchor-id="top-excluded-detailed-audiences">Top Excluded (Detailed) Audiences</h2>
-<p>Here, we show the <em>top excluded audiences</em> for each party for the “detailed” targeting that Meta offers (ranked by amount of Euro spend). Most (but not all) of these audiences are “interest” audiences, i.e.&nbsp;the parties excluded people interested in “Books” or “Politics”.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Sep 26th - Oct 2nd 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+:::
+
+## Top Excluded (Detailed) Audiences 
+
+Here, we show the *top excluded audiences* for each party for the "detailed" targeting that Meta offers (ranked by amount of Euro spend). Most (but not all) of these audiences are “interest” audiences, i.e. the parties excluded people interested in “Books” or “Politics”.
+
+::: {.panel-tabset}
+
+
+
+
+::: {.cell}
+
+:::
+
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -488,11 +370,18 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+
+
+### Sep 26th - Oct 2nd 2023 (Last 7 days)
+
+
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -524,118 +413,164 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="top-contested-audiences" class="level2">
-<h2 class="anchored" data-anchor-id="top-contested-audiences">Top Contested Audiences</h2>
-<p>Here, we show the <em>top most contested audiences</em>, i.e.&nbsp;where all parties have spent considerable amounts of money competing to reach voters with the same interests.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Sep 26th - Oct 2nd 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
-<div class="cell">
-<div class="cell-output-display">
+```
+:::
 
+
+:::
+
+## Top Contested Audiences 
+
+Here, we show the *top most contested audiences*, i.e. where all parties have spent considerable amounts of money competing to reach voters with the same interests. 
+
+
+::: {.panel-tabset}
+
+
+
+::: {.cell}
+
+:::
+
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+::: {.cell}
+::: {.cell-output-display}
+```{=html}
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7c328471d233dfb34429" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-7c328471d233dfb34429">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"% of budget spent on targeting method"},"type":"linear","labels":{"format":"{value}%"},"max":100,"min":0},"credits":{"enabled":true,"text":"Source: Meta Ad Library and data compiled by Who Targets Me. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"stacking":"normal"}},"series":[{"name":"BS","data":[{"party":"BS","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3944.58943602381,"n":5,"total_spenderino":50460.0802332359,"perc":7.81724764960973,"labb":null,"colors":"#e6001a","y":7.81724764960973,"color":"#e6001a","name":"INTERESTS: Entrepreneurship"},{"party":"BS","value":"INTERESTS: Small and medium enterprises","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3944.58943602381,"n":4,"total_spenderino":33179.1117185859,"perc":11.8887734833907,"labb":null,"colors":"#e6001a","y":11.8887734833907,"color":"#e6001a","name":"INTERESTS: Small and medium enterprises"},{"party":"BS","value":"BEHAVIORS: Small business owners","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":3496.84049537314,"n":3,"total_spenderino":29952.01602227,"perc":11.6748084428546,"labb":null,"colors":"#e6001a","y":11.6748084428546,"color":"#e6001a","name":"BEHAVIORS: Small business owners"},{"party":"BS","value":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2302.72352661519,"n":4,"total_spenderino":47491.6386882595,"perc":4.84869250718116,"labb":null,"colors":"#e6001a","y":4.84869250718116,"color":"#e6001a","name":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) "},{"party":"BS","value":"DEMOGRAPHICS: Parents with preteens (09-12 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2302.72352661519,"n":4,"total_spenderino":47578.5154668133,"perc":4.83983895676899,"labb":null,"colors":"#e6001a","y":4.83983895676899,"color":"#e6001a","name":"DEMOGRAPHICS: Parents with preteens (09-12 years)"},{"party":"BS","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2302.72352661519,"n":5,"total_spenderino":48257.703621315,"perc":4.77172213722597,"labb":null,"colors":"#e6001a","y":4.77172213722597,"color":"#e6001a","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"}],"type":"bar","showInLegend":true},{"name":"KO","data":[{"party":"KO","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":248667.10572024,"n":4,"total_spenderino":322743.436714005,"perc":77.0479202465062,"labb":null,"colors":"#f68f2d","y":77.0479202465062,"color":"#f68f2d","name":"INTERESTS: Activism"},{"party":"KO","value":"INTERESTS: Social movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":190888.950239558,"n":4,"total_spenderino":257686.680920348,"perc":74.077926557082,"labb":null,"colors":"#f68f2d","y":74.077926557082,"color":"#f68f2d","name":"INTERESTS: Social movement"},{"party":"KO","value":"INTERESTS: European Union","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":181240.329825678,"n":3,"total_spenderino":227745.39229514,"perc":79.5802400211923,"labb":null,"colors":"#f68f2d","y":79.5802400211923,"color":"#f68f2d","name":"INTERESTS: European Union"},{"party":"KO","value":"INTERESTS: Current events","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":157327.27388821,"n":4,"total_spenderino":211427.914187622,"perc":74.4117797750192,"labb":null,"colors":"#f68f2d","y":74.4117797750192,"color":"#f68f2d","name":"INTERESTS: Current events"},{"party":"KO","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":144319.773285787,"n":5,"total_spenderino":225418.265960326,"perc":64.0231050802189,"labb":null,"colors":"#f68f2d","y":64.0231050802189,"color":"#f68f2d","name":"INTERESTS: Politics"},{"party":"KO","value":"INTERESTS: Social change","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":111037.884513641,"n":4,"total_spenderino":175440.65375236,"perc":63.2908519996591,"labb":null,"colors":"#f68f2d","y":63.2908519996591,"color":"#f68f2d","name":"INTERESTS: Social change"},{"party":"KO","value":"INTERESTS: Folk music","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100671.968825316,"n":3,"total_spenderino":109686.37626248,"perc":91.7816526132722,"labb":null,"colors":"#f68f2d","y":91.7816526132722,"color":"#f68f2d","name":"INTERESTS: Folk music"},{"party":"KO","value":"INTERESTS: Community issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":70680.2764980105,"n":4,"total_spenderino":128208.010623443,"perc":55.1293762022439,"labb":null,"colors":"#f68f2d","y":55.1293762022439,"color":"#f68f2d","name":"INTERESTS: Community issues"},{"party":"KO","value":"INTERESTS: Government","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":47817.3797139492,"n":3,"total_spenderino":95179.2413979267,"perc":50.239294841649,"labb":null,"colors":"#f68f2d","y":50.239294841649,"color":"#f68f2d","name":"INTERESTS: Government"},{"party":"KO","value":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":36436.4428321487,"n":4,"total_spenderino":47491.6386882595,"perc":76.7218058558089,"labb":null,"colors":"#f68f2d","y":76.7218058558089,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) "},{"party":"KO","value":"DEMOGRAPHICS: Parents with preteens (09-12 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":36386.4437846764,"n":4,"total_spenderino":47578.5154668133,"perc":76.4766269558295,"labb":null,"colors":"#f68f2d","y":76.4766269558295,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents with preteens (09-12 years)"},{"party":"KO","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":36120.8200224721,"n":5,"total_spenderino":48257.703621315,"perc":74.8498525870964,"labb":null,"colors":"#f68f2d","y":74.8498525870964,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"},{"party":"KO","value":"DEMOGRAPHICS: Parents with preschoolers (03-05 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":35446.5391072397,"n":3,"total_spenderino":43921.9673402719,"perc":80.7034412475849,"labb":null,"colors":"#f68f2d","y":80.7034412475849,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents with preschoolers (03-05 years) "},{"party":"KO","value":"DEMOGRAPHICS: Parents (up to 12 months)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":34795.132875757,"n":3,"total_spenderino":43428.6115154757,"perc":80.1202977980492,"labb":null,"colors":"#f68f2d","y":80.1202977980492,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents (up to 12 months)"},{"party":"KO","value":"DEMOGRAPHICS: Parents with toddlers (01-02 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":34795.132875757,"n":3,"total_spenderino":43180.378350919,"perc":80.5808892941682,"labb":null,"colors":"#f68f2d","y":80.5808892941682,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents with toddlers (01-02 years) "},{"party":"KO","value":"INTERESTS: TVN (Poland)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":18729.5142892441,"n":3,"total_spenderino":30823.6908317722,"perc":60.7633731841686,"labb":null,"colors":"#f68f2d","y":60.7633731841686,"color":"#f68f2d","name":"INTERESTS: TVN (Poland)"},{"party":"KO","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":15419.3000096412,"n":4,"total_spenderino":56687.6838074132,"perc":27.2004410376435,"labb":null,"colors":"#f68f2d","y":27.2004410376435,"color":"#f68f2d","name":"INTERESTS: Politics and social issues"},{"party":"KO","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":8404.56531480174,"n":5,"total_spenderino":50460.0802332359,"perc":16.6558698994419,"labb":null,"colors":"#f68f2d","y":16.6558698994419,"color":"#f68f2d","name":"INTERESTS: Entrepreneurship"},{"party":"KO","value":"DEMOGRAPHICS: Business and Finance","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":8315.68265087107,"n":4,"total_spenderino":26811.4064058357,"perc":31.0154660482902,"labb":null,"colors":"#f68f2d","y":31.0154660482902,"color":"#f68f2d","name":"DEMOGRAPHICS: Business and Finance"},{"party":"KO","value":"INTERESTS: Business","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7501.71973624013,"n":4,"total_spenderino":24307.7462474234,"perc":30.8614367612764,"labb":null,"colors":"#f68f2d","y":30.8614367612764,"color":"#f68f2d","name":"INTERESTS: Business"},{"party":"KO","value":"INTERESTS: Small and medium enterprises","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7056.68643947462,"n":4,"total_spenderino":33179.1117185859,"perc":21.2684610104305,"labb":null,"colors":"#f68f2d","y":21.2684610104305,"color":"#f68f2d","name":"INTERESTS: Small and medium enterprises"},{"party":"KO","value":"INTERESTS: Economy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":6216.61058002733,"n":4,"total_spenderino":22826.749431479,"perc":27.2338845208261,"labb":null,"colors":"#f68f2d","y":27.2338845208261,"color":"#f68f2d","name":"INTERESTS: Economy"},{"party":"KO","value":"BEHAVIORS: Small business owners","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":5411.58776678251,"n":3,"total_spenderino":29952.01602227,"perc":18.0675242786959,"labb":null,"colors":"#f68f2d","y":18.0675242786959,"color":"#f68f2d","name":"BEHAVIORS: Small business owners"},{"party":"KO","value":"DEMOGRAPHICS: In college","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":4697.56273837536,"n":3,"total_spenderino":23761.7971054588,"perc":19.7693916732257,"labb":null,"colors":"#f68f2d","y":19.7693916732257,"color":"#f68f2d","name":"DEMOGRAPHICS: In college"},{"party":"KO","value":"DEMOGRAPHICS: Master's degree","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":4693.77240344144,"n":3,"total_spenderino":27019.7714552556,"perc":17.371621411433,"labb":null,"colors":"#f68f2d","y":17.371621411433,"color":"#f68f2d","name":"DEMOGRAPHICS: Master's degree"},{"party":"KO","value":"INTERESTS: Agriculture","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4528.97249491156,"n":3,"total_spenderino":48371.2891552791,"perc":9.36293527421376,"labb":null,"colors":"#f68f2d","y":9.36293527421376,"color":"#f68f2d","name":"INTERESTS: Agriculture"},{"party":"KO","value":"DEMOGRAPHICS: Parents (All)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":3976.43326589612,"n":4,"total_spenderino":35964.4404167721,"perc":11.0565692662403,"labb":null,"colors":"#f68f2d","y":11.0565692662403,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents (All)"},{"party":"KO","value":"DEMOGRAPHICS: Some college","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2727.8319368471,"n":3,"total_spenderino":26535.3127463763,"perc":10.2800067326119,"labb":null,"colors":"#f68f2d","y":10.2800067326119,"color":"#f68f2d","name":"DEMOGRAPHICS: Some college"},{"party":"KO","value":"INTERESTS: Non-governmental organization","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2109.92378082484,"n":3,"total_spenderino":23926.6518950572,"perc":8.81829931776084,"labb":null,"colors":"#f68f2d","y":8.81829931776084,"color":"#f68f2d","name":"INTERESTS: Non-governmental organization"}],"type":"bar","showInLegend":true},{"name":"KWIN","data":[{"party":"KWIN","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2104.71375928147,"n":5,"total_spenderino":225418.265960326,"perc":0.93369264035236,"labb":null,"colors":"#122746","y":0.93369264035236,"color":"#122746","name":"INTERESTS: Politics"}],"type":"bar","showInLegend":true},{"name":"TD","data":[{"party":"TD","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26162.6226559506,"n":5,"total_spenderino":50460.0802332359,"perc":51.8481590497323,"labb":null,"colors":"#3db53a","y":51.8481590497323,"color":"#3db53a","name":"INTERESTS: Entrepreneurship"},{"party":"TD","value":"INTERESTS: Agriculture","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":24403.3386853203,"n":3,"total_spenderino":48371.2891552791,"perc":50.4500481824702,"labb":null,"colors":"#3db53a","y":50.4500481824702,"color":"#3db53a","name":"INTERESTS: Agriculture"},{"party":"TD","value":"BEHAVIORS: Small business owners","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":21043.5877601143,"n":3,"total_spenderino":29952.01602227,"perc":70.2576672784495,"labb":null,"colors":"#3db53a","y":70.2576672784495,"color":"#3db53a","name":"BEHAVIORS: Small business owners"},{"party":"TD","value":"INTERESTS: Small and medium enterprises","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":16744.8137561913,"n":4,"total_spenderino":33179.1117185859,"perc":50.4679386784528,"labb":null,"colors":"#3db53a","y":50.4679386784528,"color":"#3db53a","name":"INTERESTS: Small and medium enterprises"},{"party":"TD","value":"INTERESTS: Current events","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":16308.1674880975,"n":4,"total_spenderino":211427.914187622,"perc":7.71334643807988,"labb":null,"colors":"#3db53a","y":7.71334643807988,"color":"#3db53a","name":"INTERESTS: Current events"},{"party":"TD","value":"DEMOGRAPHICS: Some college","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":16041.5245346614,"n":3,"total_spenderino":26535.3127463763,"perc":60.4534971491982,"labb":null,"colors":"#3db53a","y":60.4534971491982,"color":"#3db53a","name":"DEMOGRAPHICS: Some college"},{"party":"TD","value":"DEMOGRAPHICS: In college","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":13612.2095160311,"n":3,"total_spenderino":23761.7971054588,"perc":57.2861112129601,"labb":null,"colors":"#3db53a","y":57.2861112129601,"color":"#3db53a","name":"DEMOGRAPHICS: In college"},{"party":"TD","value":"DEMOGRAPHICS: Master's degree","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":13474.5007617973,"n":3,"total_spenderino":27019.7714552556,"perc":49.8690404695352,"labb":null,"colors":"#3db53a","y":49.8690404695352,"color":"#3db53a","name":"DEMOGRAPHICS: Master's degree"},{"party":"TD","value":"INTERESTS: Higher education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12658.0647956403,"n":3,"total_spenderino":27130.3567420515,"perc":46.6564627807513,"labb":null,"colors":"#3db53a","y":46.6564627807513,"color":"#3db53a","name":"INTERESTS: Higher education"},{"party":"TD","value":"DEMOGRAPHICS: Parents (All)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":10747.4903371917,"n":4,"total_spenderino":35964.4404167721,"perc":29.8836578927544,"labb":null,"colors":"#3db53a","y":29.8836578927544,"color":"#3db53a","name":"DEMOGRAPHICS: Parents (All)"},{"party":"TD","value":"DEMOGRAPHICS: Business and Finance","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":9713.76559886412,"n":4,"total_spenderino":26811.4064058357,"perc":36.2299741081462,"labb":null,"colors":"#3db53a","y":36.2299741081462,"color":"#3db53a","name":"DEMOGRAPHICS: Business and Finance"},{"party":"TD","value":"INTERESTS: Business","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":8959.96225986784,"n":4,"total_spenderino":24307.7462474234,"perc":36.8605224386756,"labb":null,"colors":"#3db53a","y":36.8605224386756,"color":"#3db53a","name":"INTERESTS: Business"},{"party":"TD","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7677.9812629882,"n":5,"total_spenderino":225418.265960326,"perc":3.40610430582389,"labb":null,"colors":"#3db53a","y":3.40610430582389,"color":"#3db53a","name":"INTERESTS: Politics"},{"party":"TD","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":6834.95474764043,"n":4,"total_spenderino":322743.436714005,"perc":2.11776723245875,"labb":null,"colors":"#3db53a","y":2.11776723245875,"color":"#3db53a","name":"INTERESTS: Activism"},{"party":"TD","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5751.78379466074,"n":4,"total_spenderino":56687.6838074132,"perc":10.1464434747439,"labb":null,"colors":"#3db53a","y":10.1464434747439,"color":"#3db53a","name":"INTERESTS: Politics and social issues"},{"party":"TD","value":"INTERESTS: Economy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4691.32435213509,"n":4,"total_spenderino":22826.749431479,"perc":20.551872119232,"labb":null,"colors":"#3db53a","y":20.551872119232,"color":"#3db53a","name":"INTERESTS: Economy"},{"party":"TD","value":"INTERESTS: Community issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3854.12782446107,"n":4,"total_spenderino":128208.010623443,"perc":3.00615211617389,"labb":null,"colors":"#3db53a","y":3.00615211617389,"color":"#3db53a","name":"INTERESTS: Community issues"},{"party":"TD","value":"INTERESTS: European Union","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3839.25928230392,"n":3,"total_spenderino":227745.39229514,"perc":1.6857681481997,"labb":null,"colors":"#3db53a","y":1.6857681481997,"color":"#3db53a","name":"INTERESTS: European Union"},{"party":"TD","value":"INTERESTS: Folk music","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3790.37394222771,"n":3,"total_spenderino":109686.37626248,"perc":3.45564697402105,"labb":null,"colors":"#3db53a","y":3.45564697402105,"color":"#3db53a","name":"INTERESTS: Folk music"},{"party":"TD","value":"INTERESTS: Social movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3622.98836870882,"n":4,"total_spenderino":257686.680920348,"perc":1.40596648447993,"labb":null,"colors":"#3db53a","y":1.40596648447993,"color":"#3db53a","name":"INTERESTS: Social movement"},{"party":"TD","value":"INTERESTS: Social change","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3311.96366189374,"n":4,"total_spenderino":175440.65375236,"perc":1.88779715023673,"labb":null,"colors":"#3db53a","y":1.88779715023673,"color":"#3db53a","name":"INTERESTS: Social change"},{"party":"TD","value":"INTERESTS: TVN (Poland)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2959.25548859083,"n":3,"total_spenderino":30823.6908317722,"perc":9.60058775810361,"labb":null,"colors":"#3db53a","y":9.60058775810361,"color":"#3db53a","name":"INTERESTS: TVN (Poland)"},{"party":"TD","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2065.67742229373,"n":5,"total_spenderino":48257.703621315,"perc":4.28051330105426,"labb":null,"colors":"#3db53a","y":4.28051330105426,"color":"#3db53a","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"}],"type":"bar","showInLegend":true},{"name":"ZP","data":[{"party":"ZP","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":58922.0617208193,"n":5,"total_spenderino":225418.265960326,"perc":26.138991651719,"labb":null,"colors":"#263778","y":26.138991651719,"color":"#263778","name":"INTERESTS: Politics"},{"party":"ZP","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":50436.6693029615,"n":4,"total_spenderino":322743.436714005,"perc":15.6274810160293,"labb":null,"colors":"#263778","y":15.6274810160293,"color":"#263778","name":"INTERESTS: Activism"},{"party":"ZP","value":"INTERESTS: Social change","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":49545.4248724303,"n":4,"total_spenderino":175440.65375236,"perc":28.2405610174967,"labb":null,"colors":"#263778","y":28.2405610174967,"color":"#263778","name":"INTERESTS: Social change"},{"party":"ZP","value":"INTERESTS: Social movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":49545.4248724303,"n":4,"total_spenderino":257686.680920348,"perc":19.2270026124264,"labb":null,"colors":"#263778","y":19.2270026124264,"color":"#263778","name":"INTERESTS: Social movement"},{"party":"ZP","value":"INTERESTS: Community issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":46465.6351645367,"n":4,"total_spenderino":128208.010623443,"perc":36.2423805958662,"labb":null,"colors":"#263778","y":36.2423805958662,"color":"#263778","name":"INTERESTS: Community issues"},{"party":"ZP","value":"INTERESTS: Government","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":44435.4919498299,"n":3,"total_spenderino":95179.2413979267,"perc":46.6861169486037,"labb":null,"colors":"#263778","y":46.6861169486037,"color":"#263778","name":"INTERESTS: Government"},{"party":"ZP","value":"INTERESTS: European Union","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":42665.8031871576,"n":3,"total_spenderino":227745.39229514,"perc":18.733991830608,"labb":null,"colors":"#263778","y":18.733991830608,"color":"#263778","name":"INTERESTS: European Union"},{"party":"ZP","value":"INTERESTS: Current events","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":30057.6633619665,"n":4,"total_spenderino":211427.914187622,"perc":14.2165065939653,"labb":null,"colors":"#263778","y":14.2165065939653,"color":"#263778","name":"INTERESTS: Current events"},{"party":"ZP","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":29390.8344972877,"n":4,"total_spenderino":56687.6838074132,"perc":51.8469489724401,"labb":null,"colors":"#263778","y":51.8469489724401,"color":"#263778","name":"INTERESTS: Politics and social issues"},{"party":"ZP","value":"INTERESTS: Non-governmental organization","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":19521.9960454811,"n":3,"total_spenderino":23926.6518950572,"perc":81.5910062599022,"labb":null,"colors":"#263778","y":81.5910062599022,"color":"#263778","name":"INTERESTS: Non-governmental organization"},{"party":"ZP","value":"INTERESTS: Agriculture","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":19438.9779750472,"n":3,"total_spenderino":48371.2891552791,"perc":40.187016543316,"labb":null,"colors":"#263778","y":40.187016543316,"color":"#263778","name":"INTERESTS: Agriculture"},{"party":"ZP","value":"DEMOGRAPHICS: Parents (All)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":16629.8904325764,"n":4,"total_spenderino":35964.4404167721,"perc":46.2398142161028,"labb":null,"colors":"#263778","y":46.2398142161028,"color":"#263778","name":"DEMOGRAPHICS: Parents (All)"},{"party":"ZP","value":"INTERESTS: Economy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7708.91550870024,"n":4,"total_spenderino":22826.749431479,"perc":33.771411614434,"labb":null,"colors":"#263778","y":33.771411614434,"color":"#263778","name":"INTERESTS: Economy"},{"party":"ZP","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7058.00585016792,"n":5,"total_spenderino":50460.0802332359,"perc":13.9873060398329,"labb":null,"colors":"#263778","y":13.9873060398329,"color":"#263778","name":"INTERESTS: Entrepreneurship"},{"party":"ZP","value":"DEMOGRAPHICS: Parents (up to 12 months)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5869.31089342731,"n":3,"total_spenderino":43428.6115154757,"perc":13.5148481349347,"labb":null,"colors":"#263778","y":13.5148481349347,"color":"#263778","name":"DEMOGRAPHICS: Parents (up to 12 months)"},{"party":"ZP","value":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5703.07267100144,"n":4,"total_spenderino":47491.6386882595,"perc":12.0085826232214,"labb":null,"colors":"#263778","y":12.0085826232214,"color":"#263778","name":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) "},{"party":"ZP","value":"DEMOGRAPHICS: Parents with preschoolers (03-05 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5703.07267100144,"n":3,"total_spenderino":43921.9673402719,"perc":12.9845565131877,"labb":null,"colors":"#263778","y":12.9845565131877,"color":"#263778","name":"DEMOGRAPHICS: Parents with preschoolers (03-05 years) "},{"party":"ZP","value":"DEMOGRAPHICS: Parents with preteens (09-12 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5703.07267100132,"n":4,"total_spenderino":47578.5154668133,"perc":11.9866553528332,"labb":null,"colors":"#263778","y":11.9866553528332,"color":"#263778","name":"DEMOGRAPHICS: Parents with preteens (09-12 years)"},{"party":"ZP","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5703.07267100132,"n":5,"total_spenderino":48257.703621315,"perc":11.8179528718443,"labb":null,"colors":"#263778","y":11.8179528718443,"color":"#263778","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"},{"party":"ZP","value":"DEMOGRAPHICS: Parents with toddlers (01-02 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5703.07267100132,"n":3,"total_spenderino":43180.378350919,"perc":13.2075560446773,"labb":null,"colors":"#263778","y":13.2075560446773,"color":"#263778","name":"DEMOGRAPHICS: Parents with toddlers (01-02 years) "},{"party":"ZP","value":"INTERESTS: Higher education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5622.41670830984,"n":3,"total_spenderino":27130.3567420515,"perc":20.7237109403549,"labb":null,"colors":"#263778","y":20.7237109403549,"color":"#263778","name":"INTERESTS: Higher education"},{"party":"ZP","value":"INTERESTS: Business","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5433.02208689616,"n":4,"total_spenderino":24307.7462474234,"perc":22.3509906331692,"labb":null,"colors":"#263778","y":22.3509906331692,"color":"#263778","name":"INTERESTS: Business"},{"party":"ZP","value":"INTERESTS: Small and medium enterprises","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5433.02208689616,"n":4,"total_spenderino":33179.1117185859,"perc":16.3748268277259,"labb":null,"colors":"#263778","y":16.3748268277259,"color":"#263778","name":"INTERESTS: Small and medium enterprises"},{"party":"ZP","value":"INTERESTS: Folk music","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5224.03349493624,"n":3,"total_spenderino":109686.37626248,"perc":4.76270041270679,"labb":null,"colors":"#263778","y":4.76270041270679,"color":"#263778","name":"INTERESTS: Folk music"},{"party":"ZP","value":"DEMOGRAPHICS: Business and Finance","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2800.19755472405,"n":4,"total_spenderino":26811.4064058357,"perc":10.4440532224918,"labb":null,"colors":"#263778","y":10.4440532224918,"color":"#263778","name":"DEMOGRAPHICS: Business and Finance"}],"type":"bar","showInLegend":true},{"name":"LEW","data":[{"party":"LEW","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":16804.7069431632,"n":4,"total_spenderino":322743.436714005,"perc":5.2068315050058,"labb":"zł322,743","colors":"#851a64","y":5.2068315050058,"color":"#851a64","name":"INTERESTS: Activism"},{"party":"LEW","value":"INTERESTS: Social movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":13629.3174396512,"n":4,"total_spenderino":257686.680920348,"perc":5.2891043460116,"labb":"zł257,687","colors":"#851a64","y":5.2891043460116,"color":"#851a64","name":"INTERESTS: Social movement"},{"party":"LEW","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12393.73593145,"n":5,"total_spenderino":225418.265960326,"perc":5.49810632188579,"labb":"zł225,418","colors":"#851a64","y":5.49810632188579,"color":"#851a64","name":"INTERESTS: Politics"},{"party":"LEW","value":"INTERESTS: Social change","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":11545.3807043954,"n":4,"total_spenderino":175440.65375236,"perc":6.58078983260746,"labb":"zł175,441","colors":"#851a64","y":6.58078983260746,"color":"#851a64","name":"INTERESTS: Social change"},{"party":"LEW","value":"INTERESTS: TVN (Poland)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":9134.92105393727,"n":3,"total_spenderino":30823.6908317722,"perc":29.6360390577278,"labb":"zł30,824","colors":"#851a64","y":29.6360390577278,"color":"#851a64","name":"INTERESTS: TVN (Poland)"},{"party":"LEW","value":"DEMOGRAPHICS: Master's degree","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":8851.49829001683,"n":3,"total_spenderino":27019.7714552556,"perc":32.7593381190318,"labb":"zł27,020","colors":"#851a64","y":32.7593381190318,"color":"#851a64","name":"DEMOGRAPHICS: Master's degree"},{"party":"LEW","value":"INTERESTS: Higher education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":8849.87523810136,"n":3,"total_spenderino":27130.3567420515,"perc":32.6198262788938,"labb":"zł27,130","colors":"#851a64","y":32.6198262788938,"color":"#851a64","name":"INTERESTS: Higher education"},{"party":"LEW","value":"DEMOGRAPHICS: Some college","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":7765.95627486777,"n":3,"total_spenderino":26535.3127463763,"perc":29.2664961181899,"labb":"zł26,535","colors":"#851a64","y":29.2664961181899,"color":"#851a64","name":"DEMOGRAPHICS: Some college"},{"party":"LEW","value":"INTERESTS: Current events","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7734.80944934801,"n":4,"total_spenderino":211427.914187622,"perc":3.65836719293561,"labb":"zł211,428","colors":"#851a64","y":3.65836719293561,"color":"#851a64","name":"INTERESTS: Current events"},{"party":"LEW","value":"INTERESTS: Community issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7207.97113643436,"n":4,"total_spenderino":128208.010623443,"perc":5.62209108571597,"labb":"zł128,208","colors":"#851a64","y":5.62209108571597,"color":"#851a64","name":"INTERESTS: Community issues"},{"party":"LEW","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":6125.76550582354,"n":4,"total_spenderino":56687.6838074132,"perc":10.8061665151725,"labb":"zł56,688","colors":"#851a64","y":10.8061665151725,"color":"#851a64","name":"INTERESTS: Politics and social issues"},{"party":"LEW","value":"DEMOGRAPHICS: Business and Finance","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5981.76060137647,"n":4,"total_spenderino":26811.4064058357,"perc":22.3105066210719,"labb":"zł26,811","colors":"#851a64","y":22.3105066210719,"color":"#851a64","name":"DEMOGRAPHICS: Business and Finance"},{"party":"LEW","value":"DEMOGRAPHICS: In college","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5452.02485105239,"n":3,"total_spenderino":23761.7971054588,"perc":22.9444971138142,"labb":"zł23,762","colors":"#851a64","y":22.9444971138142,"color":"#851a64","name":"DEMOGRAPHICS: In college"},{"party":"LEW","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4890.29697629174,"n":5,"total_spenderino":50460.0802332359,"perc":9.69141736138326,"labb":"zł50,460","colors":"#851a64","y":9.69141736138326,"color":"#851a64","name":"INTERESTS: Entrepreneurship"},{"party":"LEW","value":"DEMOGRAPHICS: Parents (All)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":4610.6263811079,"n":4,"total_spenderino":35964.4404167721,"perc":12.8199586249025,"labb":"zł35,964","colors":"#851a64","y":12.8199586249025,"color":"#851a64","name":"DEMOGRAPHICS: Parents (All)"},{"party":"LEW","value":"INTERESTS: Economy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4209.89899061635,"n":4,"total_spenderino":22826.749431479,"perc":18.4428317455079,"labb":"zł22,827","colors":"#851a64","y":18.4428317455079,"color":"#851a64","name":"INTERESTS: Economy"},{"party":"LEW","value":"DEMOGRAPHICS: Parents with preteens (09-12 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":3186.27548452034,"n":4,"total_spenderino":47578.5154668133,"perc":6.69687873456837,"labb":"zł47,579","colors":"#851a64","y":6.69687873456837,"color":"#851a64","name":"DEMOGRAPHICS: Parents with preteens (09-12 years)"},{"party":"LEW","value":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":3049.3996584942,"n":4,"total_spenderino":47491.6386882595,"perc":6.42091901378853,"labb":"zł47,492","colors":"#851a64","y":6.42091901378853,"color":"#851a64","name":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) "},{"party":"LEW","value":"INTERESTS: Government","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2926.36973414759,"n":3,"total_spenderino":95179.2413979267,"perc":3.07458820974731,"labb":"zł95,179","colors":"#851a64","y":3.07458820974731,"color":"#851a64","name":"INTERESTS: Government"},{"party":"LEW","value":"DEMOGRAPHICS: Parents with preschoolers (03-05 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2772.3555620307,"n":3,"total_spenderino":43921.9673402719,"perc":6.31200223922744,"labb":"zł43,922","colors":"#851a64","y":6.31200223922744,"color":"#851a64","name":"DEMOGRAPHICS: Parents with preschoolers (03-05 years) "},{"party":"LEW","value":"DEMOGRAPHICS: Parents (up to 12 months)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2764.16774629136,"n":3,"total_spenderino":43428.6115154757,"perc":6.36485406701606,"labb":"zł43,429","colors":"#851a64","y":6.36485406701606,"color":"#851a64","name":"DEMOGRAPHICS: Parents (up to 12 months)"},{"party":"LEW","value":"DEMOGRAPHICS: Parents with toddlers (01-02 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2682.17280416067,"n":3,"total_spenderino":43180.378350919,"perc":6.21155466115453,"labb":"zł43,180","colors":"#851a64","y":6.21155466115453,"color":"#851a64","name":"DEMOGRAPHICS: Parents with toddlers (01-02 years) "},{"party":"LEW","value":"INTERESTS: Business","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2413.04216441932,"n":4,"total_spenderino":24307.7462474234,"perc":9.92705016687879,"labb":"zł24,308","colors":"#851a64","y":9.92705016687879,"color":"#851a64","name":"INTERESTS: Business"},{"party":"LEW","value":"INTERESTS: Non-governmental organization","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2294.73206875122,"n":3,"total_spenderino":23926.6518950572,"perc":9.59069442233693,"labb":"zł23,927","colors":"#851a64","y":9.59069442233693,"color":"#851a64","name":"INTERESTS: Non-governmental organization"},{"party":"LEW","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2065.40997893262,"n":5,"total_spenderino":48257.703621315,"perc":4.27995910277907,"labb":"zł48,258","colors":"#851a64","y":4.27995910277907,"color":"#851a64","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"}],"type":"bar","showInLegend":true}],"xAxis":{"type":"category","title":{"text":"Targeting criteria"},"labels":{"style":{"fontSize":"10px"}},"categories":["DEMOGRAPHICS: Master's degree","INTERESTS: Higher education","INTERESTS: TVN (Poland)","DEMOGRAPHICS: Some college","DEMOGRAPHICS: In college","DEMOGRAPHICS: Business and Finance","INTERESTS: Economy","DEMOGRAPHICS: Parents (All)","INTERESTS: Politics and social issues","INTERESTS: Business","INTERESTS: Entrepreneurship","INTERESTS: Non-governmental organization","DEMOGRAPHICS: Parents with preteens (09-12 years)","INTERESTS: Social change","DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","DEMOGRAPHICS: Parents (up to 12 months)","DEMOGRAPHICS: Parents with preschoolers (03-05 years) ","DEMOGRAPHICS: Parents with toddlers (01-02 years) ","INTERESTS: Community issues","INTERESTS: Politics","INTERESTS: Social movement","INTERESTS: Activism","DEMOGRAPHICS: Parents with teenagers (13-17 years)","INTERESTS: Current events","INTERESTS: Government","INTERESTS: European Union","INTERESTS: Folk music","INTERESTS: Agriculture","BEHAVIORS: Small business owners","INTERESTS: Small and medium enterprises"]},"tooltip":{"pointFormat":"<b>{point.party}<\/b><br>..makes up {point.y:.1f}% of total budget spent on {point.value}. <br>..spend a total of zł{point.total_spend:.0f} on this audience.<br><br>Total Expenditure on audience is zł{point.total_spenderino:.0f}.","headerFormat":""},"legend":{"enabled":true,"verticalAlign":"bottom","layout":"horizontal"},"colors":["#e6001a","#f68f2d","#122746","#3db53a","#263778","#851a64"]},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
-<div class="cell">
-<div class="cell-output-display">
+```
+:::
+:::
 
+
+
+### Sep 26th - Oct 2nd 2023 (Last 7 days)
+
+
+::: {.cell}
+::: {.cell-output-display}
+```{=html}
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6d3f95884f8d7651d92e" style="width:100%;height:975px;"></div>
 <script type="application/json" data-for="htmlwidget-6d3f95884f8d7651d92e">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"% of budget spent on targeting method"},"type":"linear","labels":{"format":"{value}%"},"max":100,"min":0},"credits":{"enabled":true,"text":"Source: Meta Ad Library and data compiled by Who Targets Me. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"stacking":"normal"}},"series":[{"name":"BS","data":[{"party":"BS","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2252.13416101998,"n":5,"total_spenderino":22423.9820483504,"perc":10.0434176060432,"labb":null,"colors":"#e6001a","y":10.0434176060432,"color":"#e6001a","name":"INTERESTS: Entrepreneurship"},{"party":"BS","value":"INTERESTS: Small and medium enterprises","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2252.13416101998,"n":4,"total_spenderino":14871.4032569774,"perc":15.1440595221793,"labb":null,"colors":"#e6001a","y":15.1440595221793,"color":"#e6001a","name":"INTERESTS: Small and medium enterprises"},{"party":"BS","value":"INTERESTS: Parenting","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1494.32104222848,"n":3,"total_spenderino":7627.4009196631,"perc":19.591484149944,"labb":null,"colors":"#e6001a","y":19.591484149944,"color":"#e6001a","name":"INTERESTS: Parenting"},{"party":"BS","value":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1184.5759038133,"n":4,"total_spenderino":6392.15553465652,"perc":18.5317127749919,"labb":null,"colors":"#e6001a","y":18.5317127749919,"color":"#e6001a","name":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) "},{"party":"BS","value":"DEMOGRAPHICS: Parents with preteens (09-12 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1184.5759038133,"n":4,"total_spenderino":6389.35530455544,"perc":18.5398345740567,"labb":null,"colors":"#e6001a","y":18.5398345740567,"color":"#e6001a","name":"DEMOGRAPHICS: Parents with preteens (09-12 years)"},{"party":"BS","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1184.5759038133,"n":5,"total_spenderino":7270.61069022468,"perc":16.2926603319025,"labb":null,"colors":"#e6001a","y":16.2926603319025,"color":"#e6001a","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"}],"type":"bar","showInLegend":true},{"name":"KO","data":[{"party":"KO","value":"INTERESTS: Current events","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":52928.9426290216,"n":4,"total_spenderino":81051.7782285778,"perc":65.3026297334948,"labb":null,"colors":"#f68f2d","y":65.3026297334948,"color":"#f68f2d","name":"INTERESTS: Current events"},{"party":"KO","value":"INTERESTS: European Union","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":52725.2054559844,"n":3,"total_spenderino":79064.7668234893,"perc":66.6860949248007,"labb":null,"colors":"#f68f2d","y":66.6860949248007,"color":"#f68f2d","name":"INTERESTS: European Union"},{"party":"KO","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":43984.4545938357,"n":4,"total_spenderino":81870.2469298147,"perc":53.7245901206851,"labb":null,"colors":"#f68f2d","y":53.7245901206851,"color":"#f68f2d","name":"INTERESTS: Activism"},{"party":"KO","value":"INTERESTS: Social change","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":33865.9817932067,"n":4,"total_spenderino":67696.1280247932,"perc":50.0264679551591,"labb":null,"colors":"#f68f2d","y":50.0264679551591,"color":"#f68f2d","name":"INTERESTS: Social change"},{"party":"KO","value":"INTERESTS: Social movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":33788.2931415041,"n":4,"total_spenderino":68348.1037155357,"perc":49.4355970461605,"labb":null,"colors":"#f68f2d","y":49.4355970461605,"color":"#f68f2d","name":"INTERESTS: Social movement"},{"party":"KO","value":"INTERESTS: Community issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":25466.8592276614,"n":4,"total_spenderino":56462.848678178,"perc":45.1037448939481,"labb":null,"colors":"#f68f2d","y":45.1037448939481,"color":"#f68f2d","name":"INTERESTS: Community issues"},{"party":"KO","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":22165.5885787512,"n":4,"total_spenderino":62787.4660597746,"perc":35.3025690790725,"labb":null,"colors":"#f68f2d","y":35.3025690790725,"color":"#f68f2d","name":"INTERESTS: Politics"},{"party":"KO","value":"INTERESTS: TVN (Poland)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4852.17145108252,"n":3,"total_spenderino":9366.1871866921,"perc":51.8051940919641,"labb":null,"colors":"#f68f2d","y":51.8051940919641,"color":"#f68f2d","name":"INTERESTS: TVN (Poland)"},{"party":"KO","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4774.27951463177,"n":4,"total_spenderino":25367.3328501604,"perc":18.8205813470122,"labb":null,"colors":"#f68f2d","y":18.8205813470122,"color":"#f68f2d","name":"INTERESTS: Politics and social issues"},{"party":"KO","value":"INTERESTS: Agriculture","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2858.88769781028,"n":3,"total_spenderino":20113.1763150215,"perc":14.2140040589965,"labb":null,"colors":"#f68f2d","y":14.2140040589965,"color":"#f68f2d","name":"INTERESTS: Agriculture"},{"party":"KO","value":"INTERESTS: Dzień Dobry TVN","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2639.12167949591,"n":3,"total_spenderino":5607.36843830663,"perc":47.0652447495122,"labb":null,"colors":"#f68f2d","y":47.0652447495122,"color":"#f68f2d","name":"INTERESTS: Dzień Dobry TVN"},{"party":"KO","value":"INTERESTS: Economy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2180.32931684437,"n":4,"total_spenderino":9799.22261658884,"perc":22.2500233146388,"labb":null,"colors":"#f68f2d","y":22.2500233146388,"color":"#f68f2d","name":"INTERESTS: Economy"},{"party":"KO","value":"INTERESTS: Education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2005.11236235006,"n":3,"total_spenderino":7068.96925944822,"perc":28.364989134308,"labb":null,"colors":"#f68f2d","y":28.364989134308,"color":"#f68f2d","name":"INTERESTS: Education"},{"party":"KO","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1899.19161597153,"n":5,"total_spenderino":22423.9820483504,"perc":8.46946635917075,"labb":null,"colors":"#f68f2d","y":8.46946635917075,"color":"#f68f2d","name":"INTERESTS: Entrepreneurship"},{"party":"KO","value":"INTERESTS: Election","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1678.08747429984,"n":4,"total_spenderino":9957.18129546408,"perc":16.8530372653181,"labb":null,"colors":"#f68f2d","y":16.8530372653181,"color":"#f68f2d","name":"INTERESTS: Election"},{"party":"KO","value":"DEMOGRAPHICS: Parents (All)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1661.41249284352,"n":4,"total_spenderino":15999.2914475286,"perc":10.3842879435774,"labb":null,"colors":"#f68f2d","y":10.3842879435774,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents (All)"},{"party":"KO","value":"INTERESTS: Small and medium enterprises","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1624.54480006193,"n":4,"total_spenderino":14871.4032569774,"perc":10.9239509681086,"labb":null,"colors":"#f68f2d","y":10.9239509681086,"color":"#f68f2d","name":"INTERESTS: Small and medium enterprises"},{"party":"KO","value":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1198.08625168027,"n":4,"total_spenderino":6392.15553465652,"perc":18.7430710217324,"labb":null,"colors":"#f68f2d","y":18.7430710217324,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) "},{"party":"KO","value":"DEMOGRAPHICS: Parents with preteens (09-12 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1195.28602157919,"n":4,"total_spenderino":6389.35530455544,"perc":18.7074589626747,"labb":null,"colors":"#f68f2d","y":18.7074589626747,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents with preteens (09-12 years)"},{"party":"KO","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1158.31963157821,"n":5,"total_spenderino":7270.61069022468,"perc":15.931531489309,"labb":null,"colors":"#f68f2d","y":15.931531489309,"color":"#f68f2d","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"},{"party":"KO","value":"INTERESTS: Agribusiness","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1050.83730098131,"n":3,"total_spenderino":9182.81321306983,"perc":11.443522552388,"labb":null,"colors":"#f68f2d","y":11.443522552388,"color":"#f68f2d","name":"INTERESTS: Agribusiness"},{"party":"KO","value":"INTERESTS: Non-governmental organization","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1006.49835143791,"n":3,"total_spenderino":15751.5065680982,"perc":6.38985450113317,"labb":null,"colors":"#f68f2d","y":6.38985450113317,"color":"#f68f2d","name":"INTERESTS: Non-governmental organization"}],"type":"bar","showInLegend":true},{"name":"TD","data":[{"party":"TD","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12665.7929719117,"n":5,"total_spenderino":22423.9820483504,"perc":56.4832461273016,"labb":null,"colors":"#3db53a","y":56.4832461273016,"color":"#3db53a","name":"INTERESTS: Entrepreneurship"},{"party":"TD","value":"INTERESTS: Agriculture","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":11626.0043557016,"n":3,"total_spenderino":20113.1763150215,"perc":57.8029256722554,"labb":null,"colors":"#3db53a","y":57.8029256722554,"color":"#3db53a","name":"INTERESTS: Agriculture"},{"party":"TD","value":"INTERESTS: Small and medium enterprises","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":9056.81189250945,"n":4,"total_spenderino":14871.4032569774,"perc":60.9008560658869,"labb":null,"colors":"#3db53a","y":60.9008560658869,"color":"#3db53a","name":"INTERESTS: Small and medium enterprises"},{"party":"TD","value":"INTERESTS: Higher education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":8867.23996678131,"n":3,"total_spenderino":14571.712228831,"perc":60.8524230202471,"labb":null,"colors":"#3db53a","y":60.8524230202471,"color":"#3db53a","name":"INTERESTS: Higher education"},{"party":"TD","value":"INTERESTS: Current events","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7138.8166350908,"n":4,"total_spenderino":81051.7782285778,"perc":8.80772364420963,"labb":null,"colors":"#3db53a","y":8.80772364420963,"color":"#3db53a","name":"INTERESTS: Current events"},{"party":"TD","value":"INTERESTS: Agribusiness","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":6064.61526568857,"n":3,"total_spenderino":9182.81321306983,"perc":66.0431081953931,"labb":null,"colors":"#3db53a","y":66.0431081953931,"color":"#3db53a","name":"INTERESTS: Agribusiness"},{"party":"TD","value":"DEMOGRAPHICS: Parents (All)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":6063.18297745057,"n":4,"total_spenderino":15999.2914475286,"perc":37.8965718409183,"labb":null,"colors":"#3db53a","y":37.8965718409183,"color":"#3db53a","name":"DEMOGRAPHICS: Parents (All)"},{"party":"TD","value":"INTERESTS: Business","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5741.58887324994,"n":3,"total_spenderino":8886.06605902302,"perc":64.6133939936207,"labb":null,"colors":"#3db53a","y":64.6133939936207,"color":"#3db53a","name":"INTERESTS: Business"},{"party":"TD","value":"DEMOGRAPHICS: Business and Finance","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5328.79470878558,"n":3,"total_spenderino":10580.4529386614,"perc":50.3645235197251,"labb":null,"colors":"#3db53a","y":50.3645235197251,"color":"#3db53a","name":"DEMOGRAPHICS: Business and Finance"},{"party":"TD","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4705.10114224096,"n":4,"total_spenderino":62787.4660597746,"perc":7.49369490044658,"labb":null,"colors":"#3db53a","y":7.49369490044658,"color":"#3db53a","name":"INTERESTS: Politics"},{"party":"TD","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4241.96389851899,"n":4,"total_spenderino":81870.2469298147,"perc":5.18132539914717,"labb":null,"colors":"#3db53a","y":5.18132539914717,"color":"#3db53a","name":"INTERESTS: Activism"},{"party":"TD","value":"DEMOGRAPHICS: Farming, Fishing and Forestry","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":3416.58797269197,"n":3,"total_spenderino":6354.98179586205,"perc":53.7623565643669,"labb":null,"colors":"#3db53a","y":53.7623565643669,"color":"#3db53a","name":"DEMOGRAPHICS: Farming, Fishing and Forestry"},{"party":"TD","value":"INTERESTS: Economy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3246.32028995595,"n":4,"total_spenderino":9799.22261658884,"perc":33.1283451450562,"labb":null,"colors":"#3db53a","y":33.1283451450562,"color":"#3db53a","name":"INTERESTS: Economy"},{"party":"TD","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3240.82781711242,"n":4,"total_spenderino":25367.3328501604,"perc":12.7755954331317,"labb":null,"colors":"#3db53a","y":12.7755954331317,"color":"#3db53a","name":"INTERESTS: Politics and social issues"},{"party":"TD","value":"INTERESTS: Election","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2816.3897361477,"n":4,"total_spenderino":9957.18129546408,"perc":28.2850101105489,"labb":null,"colors":"#3db53a","y":28.2850101105489,"color":"#3db53a","name":"INTERESTS: Election"},{"party":"TD","value":"DEMOGRAPHICS: Management","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2534.0243122726,"n":3,"total_spenderino":7458.14115594026,"perc":33.9766204378459,"labb":null,"colors":"#3db53a","y":33.9766204378459,"color":"#3db53a","name":"DEMOGRAPHICS: Management"},{"party":"TD","value":"DEMOGRAPHICS: Business Decision Makers","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2281.74878751389,"n":3,"total_spenderino":5585.03538753952,"perc":40.8546880939122,"labb":null,"colors":"#3db53a","y":40.8546880939122,"color":"#3db53a","name":"DEMOGRAPHICS: Business Decision Makers"},{"party":"TD","value":"INTERESTS: European Union","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2270.54393260823,"n":3,"total_spenderino":79064.7668234893,"perc":2.87175188624432,"labb":null,"colors":"#3db53a","y":2.87175188624432,"color":"#3db53a","name":"INTERESTS: European Union"},{"party":"TD","value":"DEMOGRAPHICS: Community and Social Services","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2158.5143055325,"n":3,"total_spenderino":6099.35353701288,"perc":35.3892308821571,"labb":null,"colors":"#3db53a","y":35.3892308821571,"color":"#3db53a","name":"DEMOGRAPHICS: Community and Social Services"},{"party":"TD","value":"INTERESTS: Social change","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2068.1023719762,"n":4,"total_spenderino":67696.1280247932,"perc":3.05497881831405,"labb":null,"colors":"#3db53a","y":3.05497881831405,"color":"#3db53a","name":"INTERESTS: Social change"},{"party":"TD","value":"INTERESTS: Social movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2037.23287567651,"n":4,"total_spenderino":68348.1037155357,"perc":2.98067212538253,"labb":null,"colors":"#3db53a","y":2.98067212538253,"color":"#3db53a","name":"INTERESTS: Social movement"},{"party":"TD","value":"INTERESTS: Parenting","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1929.94430408573,"n":3,"total_spenderino":7627.4009196631,"perc":25.3027777668068,"labb":null,"colors":"#3db53a","y":25.3027777668068,"color":"#3db53a","name":"INTERESTS: Parenting"},{"party":"TD","value":"INTERESTS: TVN (Poland)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1768.2298796181,"n":3,"total_spenderino":9366.1871866921,"perc":18.8788654804004,"labb":null,"colors":"#3db53a","y":18.8788654804004,"color":"#3db53a","name":"INTERESTS: TVN (Poland)"},{"party":"TD","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1541.60668925269,"n":5,"total_spenderino":7270.61069022468,"perc":21.2032627647823,"labb":null,"colors":"#3db53a","y":21.2032627647823,"color":"#3db53a","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"},{"party":"TD","value":"INTERESTS: Dzień Dobry TVN","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1383.40118505894,"n":3,"total_spenderino":5607.36843830663,"perc":24.6711305005083,"labb":null,"colors":"#3db53a","y":24.6711305005083,"color":"#3db53a","name":"INTERESTS: Dzień Dobry TVN"},{"party":"TD","value":"INTERESTS: Community issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1019.84761460927,"n":4,"total_spenderino":56462.848678178,"perc":1.80622770278933,"labb":null,"colors":"#3db53a","y":1.80622770278933,"color":"#3db53a","name":"INTERESTS: Community issues"}],"type":"bar","showInLegend":true},{"name":"ZP","data":[{"party":"ZP","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":30365.3650171583,"n":4,"total_spenderino":62787.4660597746,"perc":48.3621444258477,"labb":null,"colors":"#263778","y":48.3621444258477,"color":"#263778","name":"INTERESTS: Politics"},{"party":"ZP","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":27897.0219118469,"n":4,"total_spenderino":81870.2469298147,"perc":34.0746766475034,"labb":null,"colors":"#263778","y":34.0746766475034,"color":"#263778","name":"INTERESTS: Activism"},{"party":"ZP","value":"INTERESTS: Social change","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":27526.9419599472,"n":4,"total_spenderino":67696.1280247932,"perc":40.6625057637944,"labb":null,"colors":"#263778","y":40.6625057637944,"color":"#263778","name":"INTERESTS: Social change"},{"party":"ZP","value":"INTERESTS: Social movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":27526.9419599472,"n":4,"total_spenderino":68348.1037155357,"perc":40.2746242595319,"labb":null,"colors":"#263778","y":40.2746242595319,"color":"#263778","name":"INTERESTS: Social movement"},{"party":"ZP","value":"INTERESTS: Community issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26743.6237857659,"n":4,"total_spenderino":56462.848678178,"perc":47.3649920467118,"labb":null,"colors":"#263778","y":47.3649920467118,"color":"#263778","name":"INTERESTS: Community issues"},{"party":"ZP","value":"INTERESTS: European Union","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":24069.0174348967,"n":3,"total_spenderino":79064.7668234893,"perc":30.442153188955,"labb":null,"colors":"#263778","y":30.442153188955,"color":"#263778","name":"INTERESTS: European Union"},{"party":"ZP","value":"INTERESTS: Current events","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":18077.0765800154,"n":4,"total_spenderino":81051.7782285778,"perc":22.30312150467,"labb":null,"colors":"#263778","y":22.30312150467,"color":"#263778","name":"INTERESTS: Current events"},{"party":"ZP","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":13781.0457575788,"n":4,"total_spenderino":25367.3328501604,"perc":54.3259547189317,"labb":null,"colors":"#263778","y":54.3259547189317,"color":"#263778","name":"INTERESTS: Politics and social issues"},{"party":"ZP","value":"INTERESTS: Non-governmental organization","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12975.1567770505,"n":3,"total_spenderino":15751.5065680982,"perc":82.3740682896284,"labb":null,"colors":"#263778","y":82.3740682896284,"color":"#263778","name":"INTERESTS: Non-governmental organization"},{"party":"ZP","value":"DEMOGRAPHICS: Parents (All)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":5889.63887480181,"n":4,"total_spenderino":15999.2914475286,"perc":36.8118731639931,"labb":null,"colors":"#263778","y":36.8118731639931,"color":"#263778","name":"DEMOGRAPHICS: Parents (All)"},{"party":"ZP","value":"INTERESTS: Agriculture","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5628.28426150966,"n":3,"total_spenderino":20113.1763150215,"perc":27.9830702687481,"labb":null,"colors":"#263778","y":27.9830702687481,"color":"#263778","name":"INTERESTS: Agriculture"},{"party":"ZP","value":"INTERESTS: Parenting","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4203.13557334889,"n":3,"total_spenderino":7627.4009196631,"perc":55.1057380832493,"labb":null,"colors":"#263778","y":55.1057380832493,"color":"#263778","name":"INTERESTS: Parenting"},{"party":"ZP","value":"INTERESTS: Education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3511.53040967209,"n":3,"total_spenderino":7068.96925944822,"perc":49.6752819370187,"labb":null,"colors":"#263778","y":49.6752819370187,"color":"#263778","name":"INTERESTS: Education"},{"party":"ZP","value":"INTERESTS: Election","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3392.09272117786,"n":4,"total_spenderino":9957.18129546408,"perc":34.0667968225415,"labb":null,"colors":"#263778","y":34.0667968225415,"color":"#263778","name":"INTERESTS: Election"},{"party":"ZP","value":"INTERESTS: Economy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2715.63539705628,"n":4,"total_spenderino":9799.22261658884,"perc":27.712763586563,"labb":null,"colors":"#263778","y":27.712763586563,"color":"#263778","name":"INTERESTS: Economy"},{"party":"ZP","value":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2292.75505976267,"n":4,"total_spenderino":6392.15553465652,"perc":35.8682614547155,"labb":null,"colors":"#263778","y":35.8682614547155,"color":"#263778","name":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) "},{"party":"ZP","value":"DEMOGRAPHICS: Parents with preteens (09-12 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2292.75505976267,"n":4,"total_spenderino":6389.35530455544,"perc":35.883981254384,"labb":null,"colors":"#263778","y":35.883981254384,"color":"#263778","name":"DEMOGRAPHICS: Parents with preteens (09-12 years)"},{"party":"ZP","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2292.75505976267,"n":5,"total_spenderino":7270.61069022468,"perc":31.5345595775781,"labb":null,"colors":"#263778","y":31.5345595775781,"color":"#263778","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"},{"party":"ZP","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2290.7129115272,"n":5,"total_spenderino":22423.9820483504,"perc":10.2154599775721,"labb":null,"colors":"#263778","y":10.2154599775721,"color":"#263778","name":"INTERESTS: Entrepreneurship"},{"party":"ZP","value":"INTERESTS: Agribusiness","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2067.36064639995,"n":3,"total_spenderino":9182.81321306983,"perc":22.5133692522189,"labb":null,"colors":"#263778","y":22.5133692522189,"color":"#263778","name":"INTERESTS: Agribusiness"},{"party":"ZP","value":"INTERESTS: Higher education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2049.04315710991,"n":3,"total_spenderino":14571.712228831,"perc":14.0617871457533,"labb":null,"colors":"#263778","y":14.0617871457533,"color":"#263778","name":"INTERESTS: Higher education"},{"party":"ZP","value":"INTERESTS: Business","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1937.91240338609,"n":3,"total_spenderino":8886.06605902302,"perc":21.8084402086828,"labb":null,"colors":"#263778","y":21.8084402086828,"color":"#263778","name":"INTERESTS: Business"},{"party":"ZP","value":"INTERESTS: Small and medium enterprises","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1937.91240338609,"n":4,"total_spenderino":14871.4032569774,"perc":13.0311334438251,"labb":null,"colors":"#263778","y":13.0311334438251,"color":"#263778","name":"INTERESTS: Small and medium enterprises"},{"party":"ZP","value":"DEMOGRAPHICS: Community and Social Services","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1932.96164880129,"n":3,"total_spenderino":6099.35353701288,"perc":31.691254443138,"labb":null,"colors":"#263778","y":31.691254443138,"color":"#263778","name":"DEMOGRAPHICS: Community and Social Services"},{"party":"ZP","value":"DEMOGRAPHICS: Farming, Fishing and Forestry","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1796.5044517735,"n":3,"total_spenderino":6354.98179586205,"perc":28.2692304947791,"labb":null,"colors":"#263778","y":28.2692304947791,"color":"#263778","name":"DEMOGRAPHICS: Farming, Fishing and Forestry"},{"party":"ZP","value":"DEMOGRAPHICS: Business and Finance","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1654.71160706362,"n":3,"total_spenderino":10580.4529386614,"perc":15.6393267533683,"labb":null,"colors":"#263778","y":15.6393267533683,"color":"#263778","name":"DEMOGRAPHICS: Business and Finance"},{"party":"ZP","value":"DEMOGRAPHICS: Business Decision Makers","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1556.7129115272,"n":3,"total_spenderino":5585.03538753952,"perc":27.8729283434855,"labb":null,"colors":"#263778","y":27.8729283434855,"color":"#263778","name":"DEMOGRAPHICS: Business Decision Makers"},{"party":"ZP","value":"DEMOGRAPHICS: Management","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1556.7129115272,"n":3,"total_spenderino":7458.14115594026,"perc":20.8726662445549,"labb":null,"colors":"#263778","y":20.8726662445549,"color":"#263778","name":"DEMOGRAPHICS: Management"}],"type":"bar","showInLegend":true},{"name":"LEW","data":[{"party":"LEW","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5746.80652561306,"n":4,"total_spenderino":81870.2469298147,"perc":7.01940783266436,"labb":"zł81,870","colors":"#851a64","y":7.01940783266436,"color":"#851a64","name":"INTERESTS: Activism"},{"party":"LEW","value":"INTERESTS: Politics","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":5551.41132162418,"n":4,"total_spenderino":62787.4660597746,"perc":8.84159159463316,"labb":"zł62,787","colors":"#851a64","y":8.84159159463316,"color":"#851a64","name":"INTERESTS: Politics"},{"party":"LEW","value":"INTERESTS: Social movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4995.6357384079,"n":4,"total_spenderino":68348.1037155357,"perc":7.30910656892502,"labb":"zł68,348","colors":"#851a64","y":7.30910656892502,"color":"#851a64","name":"INTERESTS: Social movement"},{"party":"LEW","value":"INTERESTS: Social change","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4235.10189966319,"n":4,"total_spenderino":67696.1280247932,"perc":6.25604746273245,"labb":"zł67,696","colors":"#851a64","y":6.25604746273245,"color":"#851a64","name":"INTERESTS: Social change"},{"party":"LEW","value":"INTERESTS: Higher education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3655.42910493976,"n":3,"total_spenderino":14571.712228831,"perc":25.0857898339996,"labb":"zł14,572","colors":"#851a64","y":25.0857898339996,"color":"#851a64","name":"INTERESTS: Higher education"},{"party":"LEW","value":"DEMOGRAPHICS: Business and Finance","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":3596.94662281223,"n":3,"total_spenderino":10580.4529386614,"perc":33.9961497269066,"labb":"zł10,580","colors":"#851a64","y":33.9961497269066,"color":"#851a64","name":"DEMOGRAPHICS: Business and Finance"},{"party":"LEW","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3571.17976083736,"n":4,"total_spenderino":25367.3328501604,"perc":14.0778685009243,"labb":"zł25,367","colors":"#851a64","y":14.0778685009243,"color":"#851a64","name":"INTERESTS: Politics and social issues"},{"party":"LEW","value":"DEMOGRAPHICS: Management","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":3367.40393214047,"n":3,"total_spenderino":7458.14115594026,"perc":45.1507133175992,"labb":"zł7,458","colors":"#851a64","y":45.1507133175992,"color":"#851a64","name":"DEMOGRAPHICS: Management"},{"party":"LEW","value":"INTERESTS: Entrepreneurship","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3316.15038792002,"n":5,"total_spenderino":22423.9820483504,"perc":14.7884099299124,"labb":"zł22,424","colors":"#851a64","y":14.7884099299124,"color":"#851a64","name":"INTERESTS: Entrepreneurship"},{"party":"LEW","value":"INTERESTS: Community issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":3232.51805014145,"n":4,"total_spenderino":56462.848678178,"perc":5.72503535655077,"labb":"zł56,463","colors":"#851a64","y":5.72503535655077,"color":"#851a64","name":"INTERESTS: Community issues"},{"party":"LEW","value":"INTERESTS: Current events","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2906.94238445004,"n":4,"total_spenderino":81051.7782285778,"perc":3.58652511762548,"labb":"zł81,052","colors":"#851a64","y":3.58652511762548,"color":"#851a64","name":"INTERESTS: Current events"},{"party":"LEW","value":"INTERESTS: TVN (Poland)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2745.78585599148,"n":3,"total_spenderino":9366.1871866921,"perc":29.3159404276354,"labb":"zł9,366","colors":"#851a64","y":29.3159404276354,"color":"#851a64","name":"INTERESTS: TVN (Poland)"},{"party":"LEW","value":"DEMOGRAPHICS: Parents (All)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2385.05710243267,"n":4,"total_spenderino":15999.2914475286,"perc":14.9072670515112,"labb":"zł15,999","colors":"#851a64","y":14.9072670515112,"color":"#851a64","name":"DEMOGRAPHICS: Parents (All)"},{"party":"LEW","value":"INTERESTS: Election","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2070.61136383868,"n":4,"total_spenderino":9957.18129546408,"perc":20.7951558015914,"labb":"zł9,957","colors":"#851a64","y":20.7951558015914,"color":"#851a64","name":"INTERESTS: Election"},{"party":"LEW","value":"DEMOGRAPHICS: Community and Social Services","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":2007.87758267909,"n":3,"total_spenderino":6099.35353701288,"perc":32.9195146747049,"labb":"zł6,099","colors":"#851a64","y":32.9195146747049,"color":"#851a64","name":"DEMOGRAPHICS: Community and Social Services"},{"party":"LEW","value":"INTERESTS: Non-governmental organization","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1769.85143960978,"n":3,"total_spenderino":15751.5065680982,"perc":11.2360772092384,"labb":"zł15,752","colors":"#851a64","y":11.2360772092384,"color":"#851a64","name":"INTERESTS: Non-governmental organization"},{"party":"LEW","value":"DEMOGRAPHICS: Business Decision Makers","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1746.57368849843,"n":3,"total_spenderino":5585.03538753952,"perc":31.2723835626024,"labb":"zł5,585","colors":"#851a64","y":31.2723835626024,"color":"#851a64","name":"DEMOGRAPHICS: Business Decision Makers"},{"party":"LEW","value":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1716.73831940029,"n":4,"total_spenderino":6392.15553465652,"perc":26.8569547485602,"labb":"zł6,392","colors":"#851a64","y":26.8569547485602,"color":"#851a64","name":"DEMOGRAPHICS: Parents with early school-age children (06-08 years) "},{"party":"LEW","value":"DEMOGRAPHICS: Parents with preteens (09-12 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1716.73831940029,"n":4,"total_spenderino":6389.35530455544,"perc":26.8687252088845,"labb":"zł6,389","colors":"#851a64","y":26.8687252088845,"color":"#851a64","name":"DEMOGRAPHICS: Parents with preteens (09-12 years)"},{"party":"LEW","value":"INTERESTS: Economy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1656.93761273223,"n":4,"total_spenderino":9799.22261658884,"perc":16.908867953742,"labb":"zł9,799","colors":"#851a64","y":16.908867953742,"color":"#851a64","name":"INTERESTS: Economy"},{"party":"LEW","value":"INTERESTS: Dzień Dobry TVN","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1584.84557375177,"n":3,"total_spenderino":5607.36843830663,"perc":28.2636247499796,"labb":"zł5,607","colors":"#851a64","y":28.2636247499796,"color":"#851a64","name":"INTERESTS: Dzień Dobry TVN"},{"party":"LEW","value":"INTERESTS: Education","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1552.32648742607,"n":3,"total_spenderino":7068.96925944822,"perc":21.9597289286732,"labb":"zł7,069","colors":"#851a64","y":21.9597289286732,"color":"#851a64","name":"INTERESTS: Education"},{"party":"LEW","value":"INTERESTS: Business","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1206.56478238699,"n":3,"total_spenderino":8886.06605902302,"perc":13.5781657976966,"labb":"zł8,886","colors":"#851a64","y":13.5781657976966,"color":"#851a64","name":"INTERESTS: Business"},{"party":"LEW","value":"DEMOGRAPHICS: Farming, Fishing and Forestry","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1141.88937139659,"n":3,"total_spenderino":6354.98179586205,"perc":17.968412940854,"labb":"zł6,355","colors":"#851a64","y":17.968412940854,"color":"#851a64","name":"DEMOGRAPHICS: Farming, Fishing and Forestry"},{"party":"LEW","value":"DEMOGRAPHICS: Parents with teenagers (13-17 years)","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1093.35340581781,"n":5,"total_spenderino":7270.61069022468,"perc":15.0379858364281,"labb":"zł7,271","colors":"#851a64","y":15.0379858364281,"color":"#851a64","name":"DEMOGRAPHICS: Parents with teenagers (13-17 years)"}],"type":"bar","showInLegend":true}],"xAxis":{"type":"category","title":{"text":"Targeting criteria"},"labels":{"style":{"fontSize":"10px"}},"categories":["DEMOGRAPHICS: Management","DEMOGRAPHICS: Business and Finance","DEMOGRAPHICS: Community and Social Services","DEMOGRAPHICS: Business Decision Makers","INTERESTS: TVN (Poland)","INTERESTS: Dzień Dobry TVN","DEMOGRAPHICS: Parents with preteens (09-12 years)","DEMOGRAPHICS: Parents with early school-age children (06-08 years) ","INTERESTS: Higher education","INTERESTS: Education","INTERESTS: Election","DEMOGRAPHICS: Farming, Fishing and Forestry","INTERESTS: Economy","DEMOGRAPHICS: Parents with teenagers (13-17 years)","DEMOGRAPHICS: Parents (All)","INTERESTS: Entrepreneurship","INTERESTS: Politics and social issues","INTERESTS: Business","INTERESTS: Non-governmental organization","INTERESTS: Politics","INTERESTS: Social movement","INTERESTS: Activism","INTERESTS: Social change","INTERESTS: Community issues","INTERESTS: Current events","INTERESTS: European Union","INTERESTS: Agriculture","INTERESTS: Small and medium enterprises","INTERESTS: Agribusiness","INTERESTS: Parenting"]},"tooltip":{"pointFormat":"<b>{point.party}<\/b><br>..makes up {point.y:.1f}% of total budget spent on {point.value}. <br>..spend a total of zł{point.total_spend:.0f} on this audience.<br><br>Total Expenditure on audience is zł{point.total_spenderino:.0f}.","headerFormat":""},"legend":{"enabled":true,"verticalAlign":"bottom","layout":"horizontal"},"colors":["#e6001a","#f68f2d","#3db53a","#263778","#851a64"]},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="location" class="level1">
-<h1>Location</h1>
-<section id="geographical-targeting" class="level2">
-<h2 class="anchored" data-anchor-id="geographical-targeting">Geographical Targeting</h2>
-<p>The graphs below show various kinds of <em>location targeting</em> that parties engaged in on Meta platforms. The bigger the area the more money was spend by the party on targeting this location.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Regions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Cities</a></li></ul>
-<div class="tab-content">
-<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="targeting_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="960"></p>
-</div>
-</div>
-<!-- ![](img/tregion.pdf) -->
-</div>
-<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="targeting_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="960"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="geographical-exclusion" class="level2">
-<h2 class="anchored" data-anchor-id="geographical-exclusion">Geographical Exclusion</h2>
-<p>On Meta, political parties can also <strong>exclude</strong> certain geographical units. The graphs below show which locations were excluded from seeing political advertisements and how much money the parties spend on these ads. The bigger the area the more money was spend on ads excluding this location.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Regions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Cities</a></li></ul>
-<div class="tab-content">
-<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="targeting_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="960"></p>
-</div>
-</div>
-<!-- ![](img/tregion.pdf) -->
-</div>
-<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="targeting_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="960"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="demographic" class="level1">
-<h1>Demographic</h1>
-<section id="age-targeting" class="level2">
-<h2 class="anchored" data-anchor-id="age-targeting">Age Targeting</h2>
-<p>The graphs below show targeting by age groups and how much percentage of party budgets were spent on them.</p>
-<blockquote class="blockquote">
-<p>Note: targeting criteria can overlap so the percentages do not sum up to 100%.</p>
-</blockquote>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">Sep 26th - Oct 2nd 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
-<div class="cell-output-display">
+```
+:::
+:::
 
+
+:::
+
+# Location
+
+## Geographical Targeting 
+
+The graphs below show various kinds of *location targeting* that parties engaged in on Meta platforms. The bigger the area the more money was spend by the party on targeting this location.
+
+
+::: {.panel-tabset}
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+::: {.panel-tabset}
+
+#### Regions
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](targeting_files/figure-html/unnamed-chunk-19-1.png){width=960}
+:::
+:::
+
+
+<!-- ![](img/tregion.pdf) -->
+
+#### Cities
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](targeting_files/figure-html/unnamed-chunk-20-1.png){width=960}
+:::
+:::
+
+
+
+:::
+
+:::
+
+## Geographical Exclusion 
+
+On Meta, political parties can also **exclude** certain geographical units. The graphs below show which locations were excluded from seeing political advertisements and how much money the parties spend on these ads. The bigger the area the more money was spend on ads excluding this location.
+
+
+::: {.panel-tabset}
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+::: {.panel-tabset}
+
+#### Regions
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](targeting_files/figure-html/unnamed-chunk-21-1.png){width=960}
+:::
+:::
+
+
+<!-- ![](img/tregion.pdf) -->
+
+#### Cities
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](targeting_files/figure-html/unnamed-chunk-22-1.png){width=960}
+:::
+:::
+
+
+
+:::
+
+:::
+
+# Demographic
+
+## Age Targeting
+
+
+The graphs below show targeting by age groups and how much percentage of party budgets were spent on them.
+
+> Note: targeting criteria can overlap so the percentages do not sum up to 100%.
+
+
+::: {.panel-tabset}
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+::: {.cell}
+
+:::
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -677,11 +612,19 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+### Sep 26th - Oct 2nd 2023 (Last 7 days)
+
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -723,23 +666,30 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="gender-targeting" class="level2">
-<h2 class="anchored" data-anchor-id="gender-targeting">Gender Targeting</h2>
-<p>The graphs below show targeting by gender and how much percentage of party budgets were spent on them.</p>
-<blockquote class="blockquote">
-<p>Note: targeting criteria can overlap so the percentages do not sum up to 100%.</p>
-</blockquote>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Sep 26th - Oct 2nd 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+:::
+
+## Gender Targeting
+
+The graphs below show targeting by gender and how much percentage of party budgets were spent on them.
+
+> Note: targeting criteria can overlap so the percentages do not sum up to 100%.
+
+::: {.panel-tabset}
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -781,11 +731,19 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+### Sep 26th - Oct 2nd 2023 (Last 7 days)
+
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -820,20 +778,27 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="education-targeting" class="level2">
-<h2 class="anchored" data-anchor-id="education-targeting">Education Targeting</h2>
-<p>The graphs below show targeting by education levels and how much percentage of party budgets were spent on them.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false">Sep 26th - Oct 2nd 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+:::
+
+## Education Targeting
+
+The graphs below show targeting by education levels and how much percentage of party budgets were spent on them.
+
+
+::: {.panel-tabset}
+
+
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -855,11 +820,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+### Sep 26th - Oct 2nd 2023 (Last 7 days)
+
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -881,23 +850,34 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="job-targeting" class="level2">
-<h2 class="anchored" data-anchor-id="job-targeting">Job Targeting</h2>
-<p>The graphs below show targeting by job (sectors) and how much percentage of party budgets were spent on them.</p>
-<blockquote class="blockquote">
-<p>Note: targeting criteria can overlap so the percentages do not sum up to 100%.</p>
-</blockquote>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-14-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-1" role="tab" aria-controls="tabset-14-1" aria-selected="true">Sep 3rd - Oct 2nd 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-2" role="tab" aria-controls="tabset-14-2" aria-selected="false">Sep 26th - Oct 2nd 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-14-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-14-1-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+
+
+:::
+
+## Job Targeting
+
+The graphs below show targeting by job (sectors) and how much percentage of party budgets were spent on them.
+
+
+> Note: targeting criteria can overlap so the percentages do not sum up to 100%.
+
+
+::: {.panel-tabset}
+
+
+### Sep 3rd - Oct 2nd 2023 (Last 30 days)
+
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -922,11 +902,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="tabset-14-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-2-tab">
-<div class="cell-output-display">
+```
+:::
 
+
+
+### Sep 26th - Oct 2nd 2023 (Last 7 days)
+
+
+::: {.cell}
+
+:::
+
+::: {.cell-output-display}
+```{=html}
 <div class="container">
 <div>
 <div class="row">
@@ -958,251 +947,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
-      });
-    }
-  }
-});
-</script>
-</div> <!-- /content -->
+```
+:::
 
 
 
-</body></html>
+
+:::
