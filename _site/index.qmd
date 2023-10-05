@@ -10,6 +10,49 @@ format:
     }
 </style>
 
+```{=html}
+<style>
+  /* Add your CSS here */
+.foldable-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.h1-header {
+    cursor: pointer;
+}
+
+.h1-header-open + .foldable-content {
+    max-height: 1000px; /* adjust this value based on your content's typical height */
+    opacity: 1;
+}
+
+
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var headers = document.querySelectorAll('h1');
+
+  headers.forEach(function(header) {
+    header.classList.add('h1-header');
+    header.addEventListener('click', function() {
+      var nextElem = header.nextElementSibling;
+      while (nextElem && nextElem.tagName !== 'H1') {
+        if (nextElem.style.display === 'none') {
+          nextElem.style.display = '';
+        } else {
+          nextElem.style.display = 'none';
+        }
+        nextElem = nextElem.nextElementSibling;
+      }
+    });
+  });
+});
+
+</script>
+```
 
 
 ```{r setup, include=FALSE}
