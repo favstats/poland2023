@@ -80,7 +80,7 @@ source("../utils.R")
 
 
 ```{r}
-election_dat30 <- readRDS("../data/election_dat30.rds") %>%
+election_dat30 <- readRDS("../historic/2023-10-15/30.rds") %>%
       # left_join(all_dat) %>% 
     rename(internal_id = page_id) %>% 
   filter(party != "And")  %>% 
@@ -89,7 +89,7 @@ election_dat30 <- readRDS("../data/election_dat30.rds") %>%
 
 
 
-election_dat7 <- readRDS("../data/election_dat7.rds") %>%
+election_dat7 <- readRDS("../historic/2023-10-15/7.rds") %>% 
       # left_join(all_dat) %>% 
     rename(internal_id = page_id) %>% 
   filter(party != "And")  %>% 
